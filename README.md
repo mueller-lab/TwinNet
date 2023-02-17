@@ -2,15 +2,14 @@
 
 This repository provides the code for training and infenece of TwinNet.
 
-## Create an environment: We recommend using Miniconda. 
+## Create an environment, using for exmaple Miniconda. 
 
 ```
 conda create -n 'twinnet' python=3.9
 conda activate twinnet
 ```
-## Install  [Tensorflow](https://www.tensorflow.org/install/pip#linux_1)):
+## Install  [Tensorflow](https://www.tensorflow.org/install/pip#linux_1):
 
-https://www.tensorflow.org/install/pip#linux_1
 
 ## Install other dependencies
 
