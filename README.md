@@ -25,3 +25,7 @@ pip install numba
 ```
 
 ## Run the notebooks for training and test 
+
+The files are located in the folder [Scripts](https://github.com/mueller-lab/TwinNet/tree/main/Scripts)
+Mofidy the paths for the models and image data accordingly
+Run the notebooks
