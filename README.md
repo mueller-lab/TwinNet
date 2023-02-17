@@ -24,4 +24,4 @@ pip install pandas
 pip install numba
 ```
 
-## 
+## Run the notebooks for training and test 
