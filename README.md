@@ -1,6 +1,6 @@
 # TwinNet
 
-This repository provides the code for training and infenece of TwinNet.
+This repository provides the code for training and inference of TwinNet.
 
 ## Create an environment, using for exmaple Miniconda. 
 
@@ -27,5 +27,5 @@ pip install numba
 ## Run the notebooks for training and test 
 
 The files are located in the folder [Scripts](https://github.com/mueller-lab/TwinNet/tree/main/Scripts). 
-Mofidy the paths for the models and image data accordingly
+Modify the paths for the models and image data accordingly
 
