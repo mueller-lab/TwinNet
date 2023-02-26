@@ -2,7 +2,7 @@
 
 This repository provides the code for training and inference of TwinNet.
 
-## Create an environment, using for exmaple Miniconda. 
+## Create an environment, using for example Miniconda. 
 
 ```
 conda create -n 'twinnet' python=3.9
