@@ -2,11 +2,11 @@
 This repository provides implementation materials for our manuscript "Uncovering developmental time and tempo using deep learning".
 
 ## Content
-*[Overview](https://github.com/mueller-lab/TwinNet#overview)
-*[System Requirements](https://github.com/mueller-lab/TwinNet#system-requirements)
-*[Installation Guide](https://github.com/mueller-lab/TwinNet#installation-guide)
-*[Demo](https://github.com/mueller-lab/TwinNet#Demo)
-*[Citation and Reference](https://github.com/mueller-lab/TwinNet#citation-and-reference)
+- [Overview](https://github.com/mueller-lab/TwinNet#overview)
+- [System Requirements](https://github.com/mueller-lab/TwinNet#system-requirements)
+- [Installation Guide](https://github.com/mueller-lab/TwinNet#installation-guide)
+- [Demo](https://github.com/mueller-lab/TwinNet#Demo)
+- [Citation and Reference](https://github.com/mueller-lab/TwinNet#citation-and-reference)
 
 # Overview
 During animal development, embryos undergo complex morphological changes over time. Classical atlases of developmental stages are based on careful - but tedious - manual microscopic observations. Idealized images capture the essence of characteristic stages, but are subjective and embryos rarely look the same. We present an automated, unbiased deep learning application for multimodal analyses of developing embryos, which might have wide-spread applications in biology and other fields. This repository contains code used for this application.
@@ -17,7 +17,7 @@ TwinNet requires only a standard computer with enough RAM to support the operati
 
 ## Software requirements
 These applications have been tested on the following systems:
-⋅⋅* Windows 10
+- Windows 10
 
 CUDA 11.2 and cuDNN 8.1 were installed to enable GPU-acceleration of training and evaluation tasks (https://developer.nvidia.com/cuda-toolkit).
 
@@ -26,9 +26,9 @@ TwinNet was developed and tested with Python 3.9.7 and tensorflow 2.8.0. Please 
 
 # Installation Guide
 We recommend creating an environment for the implementation of the code for Twin Network, for example using Miniconda (https://docs.conda.io/en/latest/miniconda.html). 
-*(Optional) Create a python environment with Python 3.9
-*Install [Tensorflow](https://www.tensorflow.org/install/).
-*Install other dependencies (requirements.txt)
+- (Optional) Create a python environment with Python 3.9
+- Install [Tensorflow](https://www.tensorflow.org/install/).
+- Install other dependencies (requirements.txt)
 
 ```
 conda create -n 'twinnet' python=3.9 
