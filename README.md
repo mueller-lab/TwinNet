@@ -22,13 +22,13 @@ These applications have been tested on the following systems:
 CUDA 11.2 and cuDNN 8.1 were installed to enable GPU-acceleration of training and evaluation tasks (https://developer.nvidia.com/cuda-toolkit).
 
 ## Python dependencies
-TwinNet was developed and tested with Python 3.9.7 and tensorflow 2.8.0. Please see the file "requirements.txt" under "Installation" for information on the used python packages.
+TwinNet was developed and tested with Python 3.9.7 and tensorflow 2.8.0. Please see the file "[requirements.txt](https://github.com/mueller-lab/TwinNet/blob/main/Installation/requirements.txt)" under "Installation" for information on the used python packages.
 
 # Installation Guide
 We recommend creating an environment for the implementation of the code for Twin Network, for example using Miniconda (https://docs.conda.io/en/latest/miniconda.html). 
 - (Optional) Create a python environment with Python 3.9
 - Install [Tensorflow](https://www.tensorflow.org/install/).
-- Install other dependencies (requirements.txt)
+- Install other dependencies ([requirements.txt](https://github.com/mueller-lab/TwinNet/blob/main/Installation/requirements.txt))
 
 ```
 conda create -n 'twinnet' python=3.9 
