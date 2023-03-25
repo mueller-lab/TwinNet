@@ -24,7 +24,10 @@ CUDA 11.2 and cuDNN 8.1 were installed to enable GPU-acceleration of training an
 TwinNet was developed and tested with Python 3.9.7 and tensorflow 2.8.0. Please see the file "[requirements.txt](https://github.com/mueller-lab/TwinNet/blob/main/Installation/requirements.txt)" under "Installation" for information on the used python packages.
 
 # Installation Guide
-We recommend creating an environment for the implementation of the code for Twin Network, for example using Miniconda (https://docs.conda.io/en/latest/miniconda.html). 
+We recommend creating an environment for the implementation of the code for Twin Network, for example using Miniconda (https://docs.conda.io/en/latest/miniconda.html).
+
+A Python environment for TwinNet implementation can be created in one of multiple ways.:
+Option 1: Create environment manually
 - (Optional) Create a python environment with Python 3.9
 - Install [Tensorflow](https://www.tensorflow.org/install/)
 - Install other dependencies ([requirements.txt](https://github.com/mueller-lab/TwinNet/blob/main/Installation/requirements.txt))
@@ -33,15 +36,22 @@ We recommend creating an environment for the implementation of the code for Twin
 conda create -n 'twinnet' python=3.9 
 conda activate twinnet
 
-pip install notebook
+pip install jupyter
 pip install matplotlib
 pip install opencv-python
+pip install pandas
+pip install scikit-learn
+pip install scipy
+pip install seaborn
 pip install tensorflow-addons
 pip install tensorflow_io
-pip install scipy
-pip install pandas
-pip install numba
+...
 ```
+Option2: Create environment from [requirements.txt](https://github.com/mueller-lab/TwinNet/blob/main/Installation/requirements.txt) file:
+```
+conda create --name 'twinnet' --file requirements.txt
+```
+
 Typical install time on a standard desktop computer for standard internet connection speeds is approximately 20 min. For installation of CUDA and cuDNN, additional installation time of approximately 1 h and system reboots are required.
 
 # Demo
