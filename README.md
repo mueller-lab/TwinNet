@@ -26,7 +26,8 @@ TwinNet was developed and tested with Python 3.9.7 and tensorflow 2.8.0. Please 
 # Installation Guide
 We recommend creating an environment for the implementation of the code for Twin Network, for example using Miniconda (https://docs.conda.io/en/latest/miniconda.html).
 
-A Python environment for TwinNet implementation can be created in one of multiple ways.:
+A Python environment for TwinNet implementation can be created in one of multiple ways.
+
 Option 1: Create environment manually
 - (Optional) Create a python environment with Python 3.9
 - Install [Tensorflow](https://www.tensorflow.org/install/)
