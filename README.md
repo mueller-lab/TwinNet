@@ -6,7 +6,6 @@ This repository provides implementation materials for our manuscript "Uncovering
 - [System Requirements](https://github.com/mueller-lab/TwinNet#system-requirements)
 - [Installation Guide](https://github.com/mueller-lab/TwinNet#installation-guide)
 - [Demo](https://github.com/mueller-lab/TwinNet#Demo)
-- [Citation and Reference](https://github.com/mueller-lab/TwinNet#citation-and-reference)
 
 # Overview
 During animal development, embryos undergo complex morphological changes over time. Classical atlases of developmental stages are based on careful - but tedious - manual microscopic observation. Idealized images capture the essence of characteristic stages but are subjective, and embryos rarely look the same. We present an automated, unbiased deep learning application for multimodal analyses of developing embryos.
@@ -26,7 +25,7 @@ TwinNet was developed and tested with Python 3.9.7 and tensorflow 2.8.0. Please 
 # Installation Guide
 We recommend creating an environment for the implementation of the code for Twin Network, for example using Miniconda (https://docs.conda.io/en/latest/miniconda.html).
 
-A Python environment for TwinNet implementation can be created in one of multiple ways.
+A Python environment for TwinNet implementation can be created as follows:
 
 Option 1: Create environment manually
 - (Optional) Create a python environment with Python 3.9
