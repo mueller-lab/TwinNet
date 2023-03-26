@@ -1,6 +1,4 @@
 # Twin Network
-Uncovering developmental time and tempo using deep learning
-
 This repository provides implementation materials for our manuscript "Uncovering developmental time and tempo using deep learning".
 
 ## Content
