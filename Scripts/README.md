@@ -14,6 +14,7 @@ Instructions and descriptions are listed in the corresponding .ipynb file.
 ## Assessment of developmental stages and developmental trajectories
 The directory "Similarities_developmental_stages" contains data, code, and example results for the usage of Twin Network to assess and compare developmental stages, and construct developmental trajectories based on predicted developmental stages.
 Instructions and descriptions are listed in the corresponding .ipynb file.
+![Similarity profile]([http://url/to/img.png](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/Similarities_developmental_stages/outputs/demo_similarity_curve_index40.svg))
 
 ## Autoregression
 This part of the testing files contains the code for "autoregression" using Twin Network. This means that Twin Network is used to calculate similarities between an image of a test embryo from an image sequence with all previous images of the same embryo. Expected outputs are two-dimensional matrices with values in the range of 0 - 1. Values should be close to 1 when similarities are high. This is expected to be in the period closest to the latest tested acquisition timepoint. High similarity values are expected to form plateaus.
