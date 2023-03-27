@@ -1,0 +1,21 @@
+
+function dts_command_source_invoke
+{
+  # 1. Preview plots from subset of dataset
+  #
+  #  dts invoke objects/example-dataset/build_plots_show_subset_as_rows contexts/example-dataset/$PARAM_ORGANISM/parametersweep1/pset1/view1      
+
+  # 2. Store individual plots and store to disk (outputs JSON, PNG)
+
+    find data/example-data/$PARAM_ORGANISM/unified/MATs/TN_*.mat | parallel dts call   objects/example-dataset/build_plot_write_to_disk        contexts/example-dataset/$PARAM_ORGANISM/parametersweep1/pset1       {}
+    find data/example-data/$PARAM_ORGANISM/unified/MATs/TN_*.mat | parallel dts call   objects/example-dataset/build_plot_write_to_disk        contexts/example-dataset/$PARAM_ORGANISM/parametersweep1/pset2       {}
+    find data/example-data/$PARAM_ORGANISM/unified/MATs/TN_*.mat | parallel dts call   objects/example-dataset/build_plot_write_to_disk        contexts/example-dataset/$PARAM_ORGANISM/parametersweep1/pset3       {}
+
+  # 3. Build listmodel for app1
+    dts invoke objects/example-dataset/build_listmodel contexts/example-dataset/$PARAM_ORGANISM  
+
+  # 4. Open app1 for study
+  #  
+  #  dts invoke objects/app1/ui_open_qml contexts/example-dataset/$PARAM_ORGANISM
+
+}

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+find $DTS_DIR/bin/dts_command_* -type f -perm +111|grep -v '~' |sort |xargs basename
+

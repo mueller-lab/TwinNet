@@ -1,0 +1,5 @@
+export PATH=$PATH:$PWD/bin
+
+export DTS_DIR_PROJECTS=/Volumes/MUE_USB_01/Manuscripts/Siamese-networks/data/
+
+export DTS_DIR_CACHE_QML=$DTS_DIR_SESSION/cache/QML

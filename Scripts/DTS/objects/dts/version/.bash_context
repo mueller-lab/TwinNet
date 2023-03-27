@@ -1,0 +1,5 @@
+
+function dts_command_source_invoke
+{
+        echo DTS_VERSION=$DTS_VERSION
+}      

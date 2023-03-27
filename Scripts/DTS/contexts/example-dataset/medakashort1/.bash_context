@@ -1,0 +1,12 @@
+export PARAM_ORGANISM=medakashort1
+
+export ALGO1_DIR_MAT=$DTS_DIR_PROJECTS/${PARAM_ORGANISM}/unified/MATs/
+
+export ALGO1_DIR_QML=$DTS_DIR_PROJECTS/${PARAM_ORGANISM}/unified/QML/
+
+export ALGO1_DIR_PNG="/media/sf_Mueller/Documents/GOR-robustness_embryogenesis/Manuscripts/Siamese-networks/data/MedakaShort/unified/PNGs"
+
+#export PARAM_METADATA_SUBDIRS=neighs_13--threshold_0.001--paramlower_0.925:neighs_14--threshold_0.001--paramlower_0.925:neighs_15--threshold_0.001--paramlower_0.925
+export PARAM_METADATA_SUBDIRS=neighs_13--threshold_0.003--paramlower_0.925:neighs_14--threshold_0.003--paramlower_0.925:neighs_15--threshold_0.003--paramlower_0.925
+
+

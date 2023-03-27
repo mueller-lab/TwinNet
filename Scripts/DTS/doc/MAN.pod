@@ -1,0 +1,184 @@
+
+=pod
+
+=head1 NAME
+
+dts - developmental time studio
+
+=head1 DESCRIPTION
+
+A launcher to invoke workflows to analyze and display C<developmental time> similarity matrices (as generated from twin networks).
+
+=head1 USAGE
+ 
+ dts [OPTIONS] <COMMAND>
+
+=head1 OPTIONS
+
+      --config string      Location of client config files (default "$HOME/.config/dts")
+  -c, --context string     Name of the context to use to connect to the daemon (overrides DOCKER_HOST env var and default context set with "docker context use")
+  -D, --debug              Enable debug mode
+  -l, --log-level string   Set the logging level ("debug"|"info"|"warn"|"error"|"fatal") (default "info")
+  -v, --version            Print version information and quit
+
+=head1 COMMANDS
+
+ help       Help
+ version    Version
+ usage      Usage (this page)
+ man        Manpage
+ env        List dts env
+ contexts   List available contexts
+ objects    Run context command
+ invoke     Invoke subcommand for multiple contexts, without (no args)
+ call       Invoke subcommand for single context, with args (respects '_current' session)
+ session    Store/Retrieve session information (objects, contexts, ..)
+ sessions   List sessions
+
+=head1 OVERVIEW
+ 
+ dts help  
+ dts usage 
+ dts contexts 
+ dts objects  
+ dts env
+ dts invoke <objects/../method> <context> [<context>, ..] 
+ dts call <objects/../method> [<context> <args>]
+
+=head1 EXAMPLE DATASET
+
+Following datasets are provided: zebrafish1, medakashort1, stickleback1, celegans1
+
+=head1 SYNPOSIS
+
+  # install, or later upgrade python packages used by dts.
+  $ dts call objects/dts/service/upgrade/pip3  
+
+  # build all for example-dataset "zebrafish1"
+  $ dts call objects/example-dataset/rebuild contexts/example-dataset/zebrafish1
+  
+  # open app1
+  $ dts call objects/app1/ui_open_qml contexts/example-dataset/zebrafish1
+
+=head2 dts objects
+
+List available, installed objects. 
+
+Default object are:
+
+ example-dataset  dowload, build, update the example dataset
+ app1             inspect a list of generated/build results
+ app2             UI app to explore a single result
+ dts              internal use
+
+=head2 dts contexts
+
+List available, installed contexts. Contexts are preset configurations, which alter the environment dts is running.
+
+Default contexts are:
+
+ example-dataset  dowload, build, update the example dataset. 
+ installation     used internally
+
+Reserved: L<installation>, L<debug>.
+
+=head3 Examples
+
+Generate plots from subset of dataset, and cache them as invidiual png files. These are later used by the interactive UI.
+
+  # Single file
+
+  $ dts call   objects/example-dataset/build_plot_write_to_disk        contexts/example-dataset/zebrafish1/parametersweep1/pset1       data/example-data/zebrafish1/unified/MATs/TN_*.mat
+
+  # Example: using multi-core system for batch processing (using the parallel[1] tool)
+
+  $ find data/example-data/zebrafish1/unified/MATs/TN_*.mat | parallel dts call   objects/example-dataset/build_plot_write_to_disk        contexts/example-dataset/zebrafish1/parametersweep1/pset1       {}
+
+=head2 dts call <objects/..> <contexts/..>
+
+Invoke an object method with one context.
+
+=head3 Example: Working on example-dataset "zebrafish1"
+
+  # 1. Preview plots from subset of dataset
+  $ dts call objects/example-dataset/build_plots_show_subset_as_rows contexts/example-dataset/zebrafish1/parametersweep1/pset1/view1      
+
+  # 2. Store individual plots and store to disk (outputs JSON, PNG)
+  $ dts call   objects/example-dataset/build_plot_write_to_disk        contexts/example-dataset/zebrafish1/parametersweep1/pset1       example-data/zebrafish1/unified/MATs/TN_similarities_0089--F012--PO01--E003.mat     
+  $ dts call   objects/example-dataset/build_plot_write_to_disk        contexts/example-dataset/zebrafish1/parametersweep1/pset1       data/example-data/zebrafish1/unified/MATs/TN_*.mat
+  $ find data/example-data/zebrafish1/unified/MATs/TN_*.mat | parallel dts call   objects/example-dataset/build_plot_write_to_disk        contexts/example-dataset/zebrafish1/parametersweep1/pset1       {}
+
+  # 3. Build listmodel for app1
+  $ dts call objects/example-dataset/build_listmodel contexts/example-dataset/zebrafish1  
+
+  # 4. Open app1 for study
+  $ dts call objects/app1/ui_open_qml contexts/example-dataset/zebrafish1
+
+=head2 dts invoke <objects/..> <contexts/..>
+
+Invoke an object method on one-or-many contexts. Similar to <dts call>.
+
+=head3 Example: Working on example-dataset "zebrafish1"
+
+  # Generate listmodel from stored JSON files (from previous build)
+  $ dts invoke objects/example-dataset/build_listmodel contexts/example-dataset/*1  
+
+  # Open apps to view results of dataset
+  $ dts invoke objects/app1/ui_open_qml contexts/example-dataset/zebrafish1 contexts/example-dataset/medakashort1
+  $ dts invoke objects/example-dataset/build_plots_show_subset_as_rows contexts/example-dataset/zebrafish1/parametersweep1/pset*/view1
+
+=head1 SESSIONS
+
+This is an advanced feature. Sessions can be used to store current information, which can be retrieved at a later situation. Per default they do not expire..
+
+Note that L<_current> is a reserved B<session-id>.
+
+=head2 COMMANDS
+
+ dts sessions
+ dts session <session-id> set    <varname> <value>
+ dts session <session-id> unset  <varname>
+ dts session <session-id> status
+ dts session <session-id> reset
+
+=head2 Examples
+
+  # This command can be abbreviated
+
+  $ dts call objects/app1/ui_open_qml contexts/example-dataset/zebrafish1
+
+  # with following form:
+
+  $ dts session _current set DTS_CONTEXT contexts/example-dataset/zebrafish1
+  $ dts call objects/app1/ui_open_qml
+  $ dts call ..
+  $ dts call ..
+
+=head1 ERROR CODES / EXIT VALUES
+
+  10 : dts/dts_command_run(): DTS_COMMAND is required. Check the usage with <dts usage>.
+  20 : dts/dts_session_load() need DTS_DIR_SESSION set.
+
+=head1 AUTHOR
+
+Murat Uenalan <murat.uenalan@uni-konstanz.de>
+
+=head1 CITATIONS
+
+[1]: @software{tange_2021_5523272,
+      author       = {Tange, Ole},
+      title        = {GNU Parallel 20210922 ('Vindelev')},
+      month        = Sep,
+      year         = 2021,
+      note         = {{GNU Parallel is a general parallelizer to run
+                       multiple serial command line programs in parallel
+                       without changing them.}},
+      publisher    = {Zenodo},
+      doi          = {10.5281/zenodo.5523272},
+      url          = {https://doi.org/10.5281/zenodo.5523272}
+}
+
+=cut
+
+
+

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+dts_command_plots_prepare_algorithm1_write_to_disk.py.run.sweep1-zebrafish1
+dts_command_plots_prepare_algorithm1_write_to_disk.py.run.sweep1-medakashort1
+dts_command_plots_prepare_algorithm1_write_to_disk.py.run.sweep1-stickleback1
+dts_command_plots_prepare_algorithm1_write_to_disk.py.run.sweep1-celegans1
+

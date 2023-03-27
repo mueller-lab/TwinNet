@@ -1,0 +1,449 @@
+#!/bin/bash
+
+DTS_VERSION=0.041
+
+ZERO_ARG_BASENAME=$(basename $0)
+
+function warn_local
+{
+    if [ "$DTS_DEBUG" ]; then
+
+        echo "[WARN, $ZERO_ARG_BASENAME] : {" $@ "}"
+
+    fi
+}
+
+warn_local 'BASH_SOURCE[0]'=${BASH_SOURCE[0]}
+
+function dts_envshow
+{
+    env|grep DTS_|sort
+}
+
+function dts_dryrun
+{
+    echo "[DRYRUN]"
+    
+    echo "ARGS: $*"
+
+    dts_envshow
+}
+
+function relpath
+{
+    /usr/bin/perl -e 'use File::Spec; print File::Spec->abs2rel(@ARGV)' "$@"
+}
+
+function dts_eval_from_source_tree_object
+{
+    warn_local COMMAND: dts_helper_updirs $DTS_DIR_OBJECT_HOME $DTS_OBJECT
+
+    LIST=$(dts_helper_updirs $DTS_DIR_OBJECT_HOME $DTS_OBJECT)
+
+    warn_local "DTS_HELPER_UPDIRS returned=$?" 
+
+    warn_local "DUMP RETURNED LIST=" $LIST
+
+    for entry in $LIST; do
+
+        if [ -f $entry ]; then
+
+            warn_local source file: $entry
+
+            source $entry
+
+        fi
+
+    done
+}
+
+function dts_eval_from_source_tree_context
+{
+    warn_local COMMAND: dts_helper_updirs $DTS_DIR_CONTEXTS_HOME $DTS_CONTEXT
+
+    LIST=$(dts_helper_updirs $DTS_DIR_CONTEXTS_HOME $DTS_CONTEXT)
+
+    warn_local "DTS_HELPER_UPDIRS returned=$?" 
+
+    warn_local "DUMP RETURNED LIST=" $LIST
+
+    for entry in $LIST; do
+
+        if [ -f $entry ]; then
+
+            warn_local source file: $entry
+
+            source $entry
+
+        fi
+
+    done
+}
+
+function dts_session_load
+{
+    DTS_DIR_SESSION=$1
+
+    if [[ ! "$DTS_DIR_SESSION" ]]; then
+
+        echo "dts/dts_session_load() need DTS_DIR_SESSION set."
+        
+        exit 20
+    fi
+    
+    for FILEPATH_SESSION_VAR in $(find $DTS_DIR_SESSION/* -maxdepth 1 -type f); do
+
+        VAR_ID=$(basename $FILEPATH_SESSION_VAR)
+        VAR_VALUE=$(cat $FILEPATH_SESSION_VAR)
+        
+        warn_local "Load session variable file: " $FILEPATH_SESSION_VAR
+
+        warn_local $VAR_ID=$VAR_VALUE
+
+        export $VAR_ID=$VAR_VALUE
+
+    done
+}
+
+function dts_command_run
+{
+    warn_local "ARGS: $@"
+
+    DTS_COMMAND=$1
+    shift
+
+    DTS_CONTEXT=$1
+
+    shift
+    
+    if [[ ! "$DTS_COMMAND" ]]; then
+
+        warn_local DTS_COMMAND is empty
+
+        echo "dts/dts_command_run(): DTS_COMMAND is required. Check the usage with <dts usage>."
+        
+        exit 10
+        
+    fi
+
+    if [[ ! "$DTS_CONTEXT" ]]; then
+
+        DTS_CONTEXT=contexts
+
+    fi
+
+    warn_local "DTS_COMMAND=$DTS_COMMAND"
+
+    warn_local "DTS_CONTEXT=$DTS_CONTEXT"
+    
+    warn_local "ARGS left: $@"
+
+    dts_eval_from_source_tree_context
+    
+    export DTS_DIR_CONTEXT=$DTS_DIR_CONTEXTS_HOME/$DTS_CONTEXT
+
+    if [[ $(type -t dts_command_source_invoke) == function ]]; then
+
+        warn_local dts_command_source_invoke found, yield from run/..
+        
+        if [[ "$DTS_DRYRUN" ]]; then
+
+            dts_dryrun
+
+            echo "[DRYRUN] SKIP..:" dts_command_source_invoke "$*"
+            
+        else
+
+            dts_command_source_invoke "$*"
+            
+        fi
+
+    else
+
+        warn_local CALL dts_command_$DTS_COMMAND "$*"
+
+        if [[ "$DTS_DRYRUN" ]]; then
+
+            dts_dryrun
+
+            echo "[DRYRUN] SKIP..:"  eval dts_command_$DTS_COMMAND "$*"
+
+        else
+
+            eval dts_command_$DTS_COMMAND "$*"
+
+            warn_local dts_command_$DTS_COMMAND exit value=$?
+            
+        fi
+
+    fi
+
+}
+
+warn_local SHELL=$SHELL
+
+if [ ! "$1" ] || [ "$1" == "help" ]; then
+
+    dts invoke objects/dts/help
+
+    exit
+
+fi
+
+if [ ! "$1" ] || [ "$1" == "version" ]; then
+
+    dts invoke objects/dts/version
+
+    exit
+
+fi
+
+if [ ! "$1" ] || [ "$1" == "usage" ]; then
+
+    dts invoke objects/dts/usage
+
+    exit
+
+fi
+
+if [ ! "$1" ] || [ "$1" == "man" ]; then
+
+    dts invoke objects/dts/man
+
+    exit
+
+fi
+
+#
+# defaults
+#
+
+if [[ ! "$DTS_DIR_CACHE_HOME" ]]; then
+
+    export DTS_DIR_CACHE_HOME=$DTS_DIR
+
+fi    
+
+if [ ! "$DTS_DIR_CONTEXTS_HOME" ]; then
+
+    export DTS_DIR_CONTEXTS_HOME=$DTS_DIR #/contexts
+
+fi
+
+if [ ! "$DTS_DIR_OBJECT_HOME" ]; then
+
+    export DTS_DIR_OBJECT_HOME=$DTS_DIR #/contexts
+
+fi
+
+if [[ ! "$DTS_DIR_CACHE" ]]; then
+
+    export DTS_DIR_CACHE=$DTS_DIR_CACHE_HOME/cache
+
+fi    
+
+if [[ "$DTS_SESSION_ID" ]]; then
+
+    export DTS_DIR_SESSION=$DTS_DIR_CACHE/session/$DTS_SESSION_ID
+
+    dts_session_load $DTS_DIR_SESSION
+    
+fi
+
+#
+# main
+#
+
+if [ "$1" == "env" ]; then
+
+    dts_envshow
+
+fi
+
+if [ "$1" == "contexts" ]; then
+
+    dts_session_load $DTS_DIR_CACHE/session/_current
+
+    warn_local DTS_CONTEXT=$DTS_CONTEXT
+    
+    for FILEPATH in $(find $DTS_DIR_CONTEXTS_HOME/contexts -maxdepth 2 -mindepth 1 -type d |sort); do
+
+        RELPATH=$(relpath $FILEPATH $PWD)
+        
+        if [[ $RELPATH == "$DTS_CONTEXT" ]]; then
+            
+            echo "* $RELPATH (_current session)"
+        else
+            echo "  $RELPATH"
+        fi
+        
+        
+    done
+
+    exit
+fi
+
+if [ "$1" == "objects" ]; then
+
+    find $DTS_DIR_OBJECT_HOME/objects -mindepth 1 -maxdepth 1 -type d |sort
+
+    exit
+fi
+
+if [ "$1" == "sessions" ]; then
+
+    find $DTS_DIR_CACHE/session/* -maxdepth 1 -type d
+
+fi
+
+if [ "$1" == "session" ]; then
+
+    shift
+
+    DTS_SESSION_ID=$1
+
+    shift
+
+    export DTS_DIR_SESSION=$DTS_DIR_CACHE/session/$DTS_SESSION_ID
+
+    warn_local Session DTS_SESSION_ID=$DTS_SESSION_ID
+    warn_local Session DTS_DIR_SESSION=$DTS_DIR_SESSION
+
+    if [ "$1" == "status" ]; then
+
+        warn_local Session files are located here: $DTS_DIR_SESSION
+
+        dts_session_load $DTS_DIR_SESSION
+    fi
+
+    if [ "$1" == "reset" ]; then
+
+       echo Invoke following command: zip -rm session-$DTS_SESSION_ID.zip $DTS_DIR_SESSION
+        
+    fi
+    
+    if [ "$1" == "set" ]; then
+
+        shift
+
+        mkdir -p $DTS_DIR_SESSION
+        
+        warn_local Session DTS_DIR_SESSION=DTS_DIR_SESSION set "$*"
+
+        echo $2 >$DTS_DIR_SESSION/$1
+    fi
+
+    if [ "$1" == "unset" ]; then
+
+        shift
+
+        rm $DTS_DIR_SESSION/$1 
+    fi
+
+
+    exit
+fi
+
+if [ "$1" == "invoke" ]; then
+
+    shift
+    
+    export DTS_OBJECT=$1
+
+    export DTS_COMMAND=$DTS_OBJECT
+
+    shift
+
+    warn_local DTS_OBJECT=$DTS_OBJECT
+
+    warn_local DTS_COMMAND=$DTS_COMMAND
+
+    warn_local ARGS="$@"
+
+    dts_eval_from_source_tree_object
+
+
+    if [[ "$@" ]]; then
+        
+        for DTS_CONTEXT in $@; do
+
+            warn_local INVOKE dts_command_run DTS_COMMAND=$DTS_COMMAND DTS_CONTEXT=$DTS_CONTEXT 
+
+            dts_command_run $DTS_COMMAND $DTS_CONTEXT 
+
+        done
+
+    else
+        
+        dts_command_run $DTS_COMMAND contexts
+
+    fi
+
+    exit
+fi
+
+if [ "$1" == "call" ]; then
+
+    shift
+    
+    export DTS_OBJECT=$1
+
+    export DTS_COMMAND=$DTS_OBJECT
+
+    shift
+
+    dts_eval_from_source_tree_object
+
+    DTS_CONTEXT=$1
+
+    shift
+
+    if [[ ! "$DTS_CONTEXT" ]]; then
+
+        warn_local DTS_CONTEXT is empty, will load session '_current'
+        
+        dts_session_load $DTS_DIR_CACHE/session/_current
+
+    fi
+
+    warn_local DTS_OBJECT=$DTS_OBJECT
+
+    warn_local DTS_COMMAND=$DTS_COMMAND
+
+    warn_local DTS_CONTEXT=$DTS_CONTEXT
+
+    warn_local ARGS="$@"
+
+    warn_local INVOKE dts_command_run DTS_COMMAND=$DTS_COMMAND DTS_CONTEXT=$DTS_CONTEXT "$*"
+
+    dts_command_run $DTS_COMMAND $DTS_CONTEXT "$*"
+
+    exit
+fi
+
+if [ "$1" == "run" ]; then
+
+    shift
+    
+    export DTS_CONTEXT=$1
+
+    shift
+
+    if [[ ! "$DTS_COMMAND" ]]; then
+        
+        export DTS_COMMAND=$1
+
+    fi
+
+    shift
+
+    dts_session_load $DTS_DIR_CACHE/session/_current
+
+    warn_local invoke "dts_command_run DTS_COMMAND=$DTS_COMMAND DTS_CONTEXT=$DTS_CONTEXT ARGS=$@"
+
+    dts_command_run $DTS_COMMAND $DTS_CONTEXT "$@"
+
+    exit
+fi
+
+warn_local "Exiting program, unknown command: $1"

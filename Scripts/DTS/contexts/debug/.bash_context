@@ -1,0 +1,4 @@
+export PATH=$PATH:$PWD/bin
+
+export DTS_DIR_PROJECTS=/media/sf_Mueller/Documents/GOR-robustness_embryogenesis/Manuscripts/Siamese-networks/data/
+

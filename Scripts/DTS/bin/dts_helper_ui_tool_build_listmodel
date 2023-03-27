@@ -1,0 +1,156 @@
+#!/usr/bin/perl
+
+use strict;
+
+use warnings;
+
+use JSON::XS;
+
+use Data::Dump qw(pp);
+
+use Path::Class;
+    
+use Env qw($DTS_DIR $DTS_DIR_PROJECTS $DTS_DIR_PROJECTS_OUT);
+
+#warn 'Using $DTS_DIR_PROJECTS=', $DTS_DIR_PROJECTS;
+
+my $json_coder = JSON::XS->new->ascii->pretty->allow_nonref;
+
+#my @metadata_subdirs = ( "neighs_10--threshold_0.003", "neighs_20--threshold_0.01" );
+my @metadata_subdirs = (
+
+#    "neighs_10--threshold_0.003--paramlower_0.975",
+#    "neighs_11--threshold_0.003--paramlower_0.975",
+#    "neighs_12--threshold_0.003--paramlower_0.975"
+
+    "neighs_13--threshold_0.003--paramlower_0.975",
+    "neighs_14--threshold_0.003--paramlower_0.975",
+    "neighs_15--threshold_0.003--paramlower_0.975"
+
+    );
+
+if( $ENV{PARAM_METADATA_SUBDIRS} )
+{
+    @metadata_subdirs = split /:/, $ENV{PARAM_METADATA_SUBDIRS};
+}
+
+warn '$ENV{PARAM_ORGANISM}=', $ENV{PARAM_ORGANISM};
+
+#my $rootDir = dir( $DTS_DIR_PROJECTS, $ENV{PARAM_ORGANISM}, "unified/MATs/mat-algorithm1_local_maxima/" );
+my $rootDir = dir( $DTS_DIR, "example-data", $ENV{PARAM_ORGANISM}, "unified/MATs/mat-algorithm1_local_maxima/" );
+
+my $rootDirImagePNG = dir( $DTS_DIR_PROJECTS_OUT, $ENV{PARAM_ORGANISM}, "unified/MATs/mat-algorithm1_local_maxima/" );
+
+if( $ENV{PARAM_ROOT_DIR} )
+{
+   $rootDir = dir( $ENV{PARAM_ROOT_DIR} );
+
+   warn "Set rootDir from PARAM_ROOT_DIR";
+}
+
+warn "Using DTS_DIR=", $DTS_DIR;
+warn "Using rootDir=", $rootDir;
+## HEADER
+
+printf <<'UNTIL_HERE', $rootDir;
+
+import QtQuick 2.3;
+
+import "../../ui";
+
+ListModelDelayed
+{
+   id: model1
+
+   property int debugLevel: 0
+
+   property string rootDir : "%s";
+
+   Component.onCompleted: {
+
+     var obj = {};
+
+UNTIL_HERE
+
+
+# $0 *.mat
+
+for my $filename_matrix ( @ARGV ) 
+{ 
+    warn( $filename_matrix, "\n" );
+			 
+    my ($well_id, $embryo_id)= ($filename_matrix =~ /.*\-\-([A-Z]{1,2}\d+)\-\-.*\-\-(E\d+).*/gm); 
+
+#    warn( '($well_id, $embryo_id)=', pp( [$well_id, $embryo_id] ) );
+    
+    my $obj = { 
+
+	flag_enabled => 1,
+
+	flag_selected => 0,
+	    
+        well_id => $well_id, 
+
+	embryo_id => $embryo_id, 
+
+	matrix_source => file(${filename_matrix})->basename,
+
+	algorithm1_local_maxima_image_source => $rootDirImagePNG->subdir( $metadata_subdirs[0] )->file( file(${filename_matrix})->basename )."-algorithm1_local_maxima.png",
+
+        atlasmodel => [],
+
+	boundarymodel => [],
+
+        roimodel => []
+    };
+
+    
+    my $aref_metadata = [];
+    
+    for my $subdir ( @metadata_subdirs )
+    {
+#	warn "Subdir: ", $subdir;
+	
+	my $json_obj_subdir = $rootDirImagePNG->subdir( $subdir );
+	    
+	my $filepath_json = $json_obj_subdir->file( sprintf "%s-local_maxima.json", file( $filename_matrix )->basename );
+
+#	warn "Check: ", $filepath_json;
+	
+	if( -e $filepath_json )
+	{
+	    my $json_text = file( $filepath_json )->slurp.'';
+
+	    my $json_obj = decode_json( $json_text );
+
+	    $json_obj = $json_obj->[0];
+	    
+	    $json_obj->{subdir} = $subdir.'';
+	    
+	    #warn "JSON found: ", $filepath_json, " : ", pp( $json_obj );
+
+	    push @$aref_metadata, $json_obj;
+	}
+    }
+
+    $obj->{metadata} = $aref_metadata;
+
+    print "\n obj = ", $json_coder->encode( $obj ), "; \n";
+
+    print ' if( debugLevel ) print( "Loading well_id=", obj.well_id, ", embryo_id=", obj.embryo_id, "\n" );', "\n\n";
+
+    print ' sourceDataAppend( obj );', "\n\n";
+}
+
+
+
+## FOOTER
+
+print <<'UNTIL_HERE';
+
+
+   }
+
+}
+
+UNTIL_HERE

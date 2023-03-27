@@ -1,0 +1,7 @@
+
+function dts_command_source_invoke
+{
+        warn_local "DTS_OBJECT=$DTS_OBJECT"
+        
+        perldoc $DTS_DIR/doc/USAGE.pod
+}      

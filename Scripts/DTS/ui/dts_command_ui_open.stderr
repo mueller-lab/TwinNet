@@ -1,0 +1,5 @@
+qt.tools.qmlscene.deprecated: Warning: qmlscene is deprecated and will be removed in a future version of Qt. Please use qml instead.
+"/Users/muenalan/Downloads/developmental_time_studio/ui/ui/unitTests/V0001/ComHyraAppDevTimeStudio/app1-zebrafish1.qml" does not exist.
+file:///Users/muenalan/Downloads/developmental_time_studio/ui/unitTests/V0001/ComHyraAppDevTimeStudio/app1-zebrafish.qml:17 Type ListModelExperimentComparisonZebrafish1 unavailable
+file:///Users/muenalan/Downloads/developmental_time_studio/ui/V0001/ComHyraAppDevTimeStudio/Models/ListModelExperimentComparisonZebrafish1.qml:-1 No such file or directory
+

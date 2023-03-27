@@ -1,0 +1,114 @@
+#!/usr/bin/perl
+
+use strict;
+
+use warnings;
+
+use Data::Dump qw(pp);
+
+use Path::Class;
+
+use Env qw($DTS_DEBUG $DTS_HELPER_UPDIRS_LIMIT_STRING );
+
+use Env qw($STOP_FILENAME);
+
+our $zero_arg_basename = file($0)->basename;
+
+if( ! $DTS_DEBUG )
+{
+    $DTS_DEBUG=0;
+}
+  
+our $DTS_DEBUG_LEVEL=2;
+    
+sub warn_local
+{
+    if( $DTS_DEBUG >= $DTS_DEBUG_LEVEL )
+    {
+        warn "[WARN, $zero_arg_basename] : {", @_, "}";
+    }
+}
+
+unless( $STOP_FILENAME )
+{
+    $STOP_FILENAME = '.bash_context';
+}
+
+unless( $DTS_HELPER_UPDIRS_LIMIT_STRING )
+{
+    $DTS_HELPER_UPDIRS_LIMIT_STRING = 300;
+}
+
+my @result=();
+
+warn_local "ARGS: ", pp( @ARGV );
+    
+my $dirpath_root = dir( shift );
+
+warn_local "dirpath_root=$dirpath_root";
+
+my $dirpath_subentry = dir( shift )->absolute( $dirpath_root );
+
+warn_local "1st subentry=$dirpath_subentry";
+
+if( -d $dirpath_subentry )
+{
+    $dirpath_subentry = dir( $dirpath_subentry )->absolute( $dirpath_root );
+}
+else
+{
+    $dirpath_subentry = dir( file( $dirpath_subentry )->parent )->absolute( $dirpath_root );
+}
+
+warn_local "2nd subentry=$dirpath_subentry";
+
+my $filename_stop = file( $dirpath_subentry, $STOP_FILENAME ).'';
+
+warn_local "filename_stop=$filename_stop";
+
+push @result, $filename_stop;
+
+my $dirpath_subentry_parent = $dirpath_subentry->parent;
+
+warn_local "subentry_parent=$dirpath_subentry_parent";
+
+do
+{
+    warn_local "WHILE begin with 1st subentry_parent=", $dirpath_subentry_parent;
+
+    $dirpath_subentry_parent = dir( $dirpath_subentry_parent );
+
+    if( length( $dirpath_subentry_parent ) > $DTS_HELPER_UPDIRS_LIMIT_STRING )
+    {
+        warn "$0 - *EXCEPTION* exceeded circuit break limit. exit with value -10.";
+
+        exit( -10 );
+    }
+    
+    warn_local "WHILE begin with 2nd subentry_parent=", $dirpath_subentry_parent;
+
+    push @result, file( $dirpath_subentry_parent, $STOP_FILENAME ).'';
+    
+    if( $dirpath_subentry_parent->absolute( $dirpath_root ) eq $dirpath_root->absolute( $dirpath_root ) )
+    {
+        warn_local "REACHED STOP at subentry_parent=$dirpath_subentry_parent";
+
+        print join( " ", reverse @result ), "\n";
+        
+        exit;
+    }
+
+    if( $dirpath_subentry_parent eq $dirpath_subentry_parent->parent->absolute( $dirpath_root ) )
+    {
+        warn_local "ABORT, no more parent";
+            
+        exit
+    }
+    
+    $dirpath_subentry_parent = $dirpath_subentry_parent->parent->absolute( $dirpath_root );
+
+    warn_local "WHILE end with subentry_parent=", $dirpath_subentry_parent;
+}
+while( length( $dirpath_subentry_parent ) )
+
+    
