@@ -7,7 +7,7 @@ This directory of the Twin Network repository contains code implementations for 
 - [Testing - Similarities_developmental_stages](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/Similarities_developmental_stages/): Assessment of developmental stages and trajectories with Twin Network generated similarities
 - [Testing - Similarities_variability](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/Similarities_variability/): Assessment of variability of similarities and predicted stages within a batch of embryos.
 - [Testing - Autoregression](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/Inference_autoregression.ipynb): Calculation of similarities for each image of a test embryo with all previous images of the same embryo for an image sequence
-- [Testing - DTS](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/DTS/): A tool to analyze cosine similarity matrices, i.e., results of autoregression.
+- [Testing - DTS](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/DTS/): Analysis of cosine similarity matrices, e.g. results of self-similarity calculation in autoregression.
 
 # Training
 Instructions and descriptions are listed in the corresponding .ipynb file.
