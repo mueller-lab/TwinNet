@@ -5,6 +5,7 @@ This directory of the Twin Network repository contains code implementations for 
 - [Commonly used scripts](https://github.com/mueller-lab/TwinNet/tree/main/Scripts/tools_V1)
 - [Training](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/Training.ipynb)
 - [Testing - Similarities_developmental_stages](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/Similarities_developmental_stages/): Assessment of developmental stages and trajectories with Twin Network generated similarities
+- [Testing - Similarities_variabilty](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/Similarities_variabilty/): Assessment of variability of similarities and predicted stages within a batch of embryos.
 - [Testing - Autoregression](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/Inference_autoregression.ipynb): Calculation of similarities for each image of a test embryo with all previous images of the same embryo for an image sequence
 
 # Training
