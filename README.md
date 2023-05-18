@@ -20,7 +20,7 @@ The applications have been tested on Windows 10.
 CUDA 11.2 and cuDNN 8.1 were installed to enable GPU-acceleration of training and evaluation tasks (https://developer.nvidia.com/cuda-toolkit).
 
 ## Python dependencies
-TwinNet was developed and tested with Python 3.9.7 and tensorflow 2.8.0. Please see the file "[requirements.txt](https://github.com/mueller-lab/TwinNet/blob/main/Installation/requirements.txt)" under "Installation" for information on the used python packages.
+TwinNet was developed and tested with Python 3.9.7 and tensorflow 2.8.0. Please see the file "[requirements.txt](https://github.com/mueller-lab/TwinNet/blob/main/installation/requirements.txt)" under "Installation" for information on the used python packages.
 
 # Installation Guide
 We recommend creating an environment for the implementation of the code for Twin Network, for example using Miniconda (https://docs.conda.io/en/latest/miniconda.html).
@@ -48,14 +48,14 @@ pip install tensorflow_io
 ...
 ```
 
-Option 2: Create environment from [environment.yml](https://github.com/mueller-lab/TwinNet/blob/main/Installation/environment.yml) file:
+Option 2: Create environment from [environment.yml](https://github.com/mueller-lab/TwinNet/blob/main/installation/environment.yml) file:
 
 ```
 conda env create -f environment.yml
 ```
 Please note that with this option the environment name can be changed by changing the corresponding parameter in the environment.yml file.
 
-Option 3: Create environment from [requirements.txt](https://github.com/mueller-lab/TwinNet/blob/main/Installation/requirements.txt) file:
+Option 3: Create environment from [requirements.txt](https://github.com/mueller-lab/TwinNet/blob/main/installation/requirements.txt) file:
 
 ```
 conda create --name 'twinnet' --file requirements.txt
