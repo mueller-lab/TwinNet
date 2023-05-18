@@ -1,7 +1,0 @@
-#!/bin/bash
-
-
-echo Will run.. eval "dts_command_build_plot_write_to_disk_algorithm1.py.run.parameterstep1.$*"
-
-eval "dts_command_build_plot_write_to_disk_algorithm1.py.run.parameterstep1.$*"
-

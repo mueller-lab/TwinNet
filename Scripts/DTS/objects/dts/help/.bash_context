@@ -1,5 +1,0 @@
-
-function dts_command_source_invoke
-{
-        perldoc $DTS_DIR/doc/HELP.pod
-}      

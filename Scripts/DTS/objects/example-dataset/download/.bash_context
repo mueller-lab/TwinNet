@@ -1,5 +1,0 @@
-
-function dts_command_source_invoke
-{
-    echo Please download the example-dataset.zip and unzip manullay into $DTS_DIR_CONTEXTS/example-dataset
-}

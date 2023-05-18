@@ -1,7 +1,0 @@
-
-function dts_command_source_invoke
-{
-   pip3 install --upgrade matplotlib
-   pip3 install --upgrade numpy
-   pip3 install --upgrade pandas
-}

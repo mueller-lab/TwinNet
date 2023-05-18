@@ -1,4 +1,0 @@
-#!/bin/bash
-
-perldoc $DTS_DIR/HELP.pod
-

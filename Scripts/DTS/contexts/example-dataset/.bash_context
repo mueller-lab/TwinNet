@@ -1,6 +1,0 @@
-#!/bin/bash
-
-export DTS_DIR_PROJECTS=$DTS_DIR/data/example-data
-
-export DTS_DIR_PROJECTS_OUT=$DTS_DIR/cache/data/example-data
-

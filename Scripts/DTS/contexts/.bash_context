@@ -1,4 +1,0 @@
-
-export PYTHONPATH=$PYTHONPATH:$DTS_DIR/code
-
-export DTS_DIR_LOG=$DTS_DIR/cache/log/

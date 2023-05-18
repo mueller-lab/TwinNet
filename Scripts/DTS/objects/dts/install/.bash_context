@@ -1,5 +1,0 @@
-export PATH=$PATH:$PWD/bin
-
-export DTS_DIR=$PWD
-
-

@@ -1,7 +1,0 @@
-
-function dts_command_source_invoke
-{
-    echo "ARGS: $*"
-
-    env|grep DTS_|sort
-}

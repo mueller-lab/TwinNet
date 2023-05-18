@@ -1,7 +1,0 @@
-#!/bin/bash
-
-#echo Will run.. eval "dts_command_build_plots_show_subset_as_rows_algorithm1.py.run.$*"
-#eval "dts_command_build_plots_show_subset_as_rows_algorithm1.py.run.$*"
-
-dts_command_build_plots_show_subset_as_rows_algorithm1.py ${DTS_DIR_PROJECTS}/${PARAM_ORGANISM}/unified/MATs/TN_similarities*.mat
-

@@ -1,8 +1,0 @@
-export PARAM_ORGANISM=zebrafish1
-
-export ALGO1_DIR_MAT=$DTS_DIR_PROJECTS/${PARAM_ORGANISM}/unified/MATs/
-
-export ALGO1_DIR_QML=$DTS_DIR_PROJECTS/${PARAM_ORGANISM}/unified/QML/
-
-#export ALGO1_DIR_PNG="/Volumes/MUE_USB_01/Manuscripts/Siamese-networks/data/Zebrafish/PNGs"
-export ALGO1_DIR_PNG=/media/muenalan/share/GOR-robustness_embryogenesis/data/Acquifer/0089-210420-ACQUIFER-mezzo/PNGs

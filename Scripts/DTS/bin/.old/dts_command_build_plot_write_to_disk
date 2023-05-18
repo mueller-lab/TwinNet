@@ -1,4 +1,0 @@
-#!/bin/bash
-
-dts_command_build_plot_write_to_disk_algorithm1.py.run $*
-
