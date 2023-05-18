@@ -47,7 +47,16 @@ pip install tensorflow-addons
 pip install tensorflow_io
 ...
 ```
-Option2: Create environment from [requirements.txt](https://github.com/mueller-lab/TwinNet/blob/main/Installation/requirements.txt) file:
+
+Option 2: Create environment from [environment.yml](https://github.com/mueller-lab/TwinNet/blob/main/Installation/environment.yml) file:
+
+```
+conda env create -f environment.yml
+```
+Please note that with this option the environment name can be changed by changing the corresponding parameter in the environment.yml file.
+
+Option 3: Create environment from [requirements.txt](https://github.com/mueller-lab/TwinNet/blob/main/Installation/requirements.txt) file:
+
 ```
 conda create --name 'twinnet' --file requirements.txt
 ```
