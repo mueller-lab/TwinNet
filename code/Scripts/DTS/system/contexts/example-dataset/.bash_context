@@ -1,0 +1,14 @@
+#!/bin/bash
+
+
+export DTS_DIR_PROJECTS=/data/dts/data/example-data
+
+export DTS_DIR_PROJECTS_OUT=$DTS_DIR_CACHE_HOME/cache/data/example-data
+
+export DTS_DATASET_ID=example-dataset-v0001
+
+export DTS_DATASET_TARGET_FILENAME=example-dataset-0001.zip
+
+export DTS_URI_PREREQ_EXAMPLE_DATASET_SOURCE="[Link is pending: Please track the corresponding publication]"
+
+unset PARAM_METADATA_SUBDIRS

@@ -1,0 +1,61 @@
+
+function dts_command_source_invoke
+{
+
+export DTS_DATASET_TARGET_FILEPATH=$DTS_DIR_CACHE_HOME/cache/compressed/${DTS_DATASET_TARGET_FILENAME}
+
+pod2text << UNTIL_HERE
+
+=pod
+
+=head1 DATASET ($DTS_DATASET_ID)
+
+The dataset will be compressed into a zip file.
+
+=head1 PREREQUISITES
+
+=over 4
+
+=item * zip
+
+The zip command.
+
+=item * unzip
+
+The unzip command, to unpack later.
+
+=back
+
+On Ubuntu, you can use following commands to install these tools:
+
+  $ sudo apt install zip unzip
+
+=head1 INSTRUCTIONS
+
+=head2 STEP1: ZIP FILE
+
+ $ zip -r $DTS_DATASET_TARGET_FILEPATH -d $DTS_DIR/data/example-data/${PARAM_ORGANISM}
+
+=head1 AUTHOR
+
+Murat Uenalan <murat.uenalan@uni-konstanz.de>
+
+=cut
+
+UNTIL_HERE
+
+    warn_local "Looking into args: 1=$1"
+
+    if [ "$1" == "commit" ]; then
+
+	mkdir -p $DTS_DIR_CACHE_HOME/cache/compressed/
+	
+	cd $DTS_DIR
+	
+	zip -r $DTS_DATASET_TARGET_FILEPATH data/example-data/${PARAM_ORGANISM}
+
+	zipinfo $DTS_DATASET_TARGET_FILEPATH
+	
+    fi
+
+}

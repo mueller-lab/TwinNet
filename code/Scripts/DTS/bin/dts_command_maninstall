@@ -1,0 +1,96 @@
+#!/usr/bin/perl
+
+use strict;
+
+use warnings;
+
+use Path::Class;
+
+use Data::Dump qw(pp);
+
+use Env qw($DTS_DEBUG $DTS_DIR $DTS_VERSION $DTS_DIR_CACHE $DTS_DIR_MANPATH);
+
+my $DTS_DIR_CACHE_TMP="${DTS_DIR_CACHE}/tmp/maninstall/man1/";
+
+our $zero_arg_basename = file($0)->basename;
+
+if( ! $DTS_DEBUG )
+{
+    $DTS_DEBUG=0;
+}
+  
+our $DTS_DEBUG_LEVEL=1;
+    
+sub warn_local
+{
+    if( $DTS_DEBUG >= $DTS_DEBUG_LEVEL )
+    {
+        warn "[WARN, $zero_arg_basename] : {", @_, "}";
+    }
+}
+
+qx{mkdir -p "$DTS_DIR_CACHE_TMP"};
+
+if( -d $DTS_DIR_MANPATH )
+{    
+    qx{mkdir -p "$DTS_DIR_MANPATH"};
+}
+
+my @files=qx{find $DTS_DIR/doc -name '*.pod' -type f};
+
+chomp( @files );
+
+#pp( \@files );
+
+for( @files )
+{
+    my $f = file( $_ )->relative( $DTS_DIR );
+    
+    my @d = $f->dir->components;
+
+    splice( @d, 0, 1 );
+
+#    pp( \@d );
+
+    my $dirpath = dir( $DTS_DIR_CACHE_TMP );
+
+#    pp $dirpath."";
+    
+    my $a = join( '-', @d, $f->basename );
+
+    $a=~ s/\.pod$/.1/g;
+
+    my $filepath_target = $dirpath->file( $a );
+    
+    warn_local sprintf( "CONVERT %s (pod2man) to %s\n", $f, $filepath_target );
+
+    $filepath_target->dir->mkpath;
+
+    qx{pod2man -n "DTS" -c "User-installed software" -r "dts V$DTS_VERSION" "$f" >$filepath_target};
+}
+
+warn_local sprintf( "SYNC to %s\n", $DTS_DIR_MANPATH );
+
+qx|rsync -r $DTS_DIR_CACHE_TMP/ $DTS_DIR_MANPATH|;
+
+chomp( @files = qx|find $DTS_DIR_CACHE_TMP -name '*.1' -type f| );
+
+my @manpages = ();
+
+for( @files )
+{
+    my $f = file( $_ )->basename;
+
+    $f =~ s/.1$//g;
+    
+    push @manpages, "$f"."(1)";
+}
+
+printf "Generated: %s.\n", join( ', ', @manpages );
+
+my $flag_mandb_present=qx|which mandb|;
+
+if( $flag_mandb_present )
+{
+    qx{mandb};
+}

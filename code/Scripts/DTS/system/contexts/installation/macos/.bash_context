@@ -1,0 +1,10 @@
+
+
+export DTS_LINETAG=$(echo dts-$DTS_VERSION|md5)
+
+
+
+
+
+
+

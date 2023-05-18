@@ -1,0 +1,137 @@
+=pod
+
+=head1 USAGE: dts [OPTIONS] <COMMAND>
+
+A launcher to invoke workflows to analyze and display C<developmental time> similarity matrices (as generated from twin networks).
+
+=head1 OPTIONS
+
+      --config string      Location of client config files (default "$HOME/.config/dts")
+  -c, --context string     Name of the context to use
+  -D, --debug              Enable debug mode
+  -l, --log-level string   Set the logging level ("debug"|"info"|"warn"|"error"|"fatal") (default "info")
+  -v, --version            Print version information and quit
+
+=head1 COMMANDS
+
+ help       Help
+ version    Version
+ usage      Usage (this page)
+ man        Manpage
+ env        List dts env
+ contexts   List available contexts
+ objects    Run context command
+ invoke     Invoke subcommand for multiple contexts, without (no args)
+ call       Invoke subcommand for single context, with args (respects '_current' session)
+ session    Store/Retrieve session information (objects, contexts, ..)
+ sessions   List sessions
+
+=head1 OVERVIEW
+ 
+ dts help  
+ dts version
+ dts usage 
+ dts man [<subject>]
+ dts contexts 
+ dts objects  
+ dts env
+ dts invoke <objects/../method> <context> [<context>, ..] 
+ dts call <objects/../method> [<context> <args>]
+ dts sessions
+ dts session <session-id> set    <varname> <value>
+ dts session <session-id> unset  <varname>
+ dts session <session-id> status
+ dts session <session-id> reset
+
+ Please consult <dts man> for more detailed examplanations/examples.
+
+=head1 SYNPOSIS
+
+  # install, or later upgrade python packages used by dts.
+  $ dts call system/objects/dts/service/upgrade/pip3  
+
+  # build all for example-dataset "zebrafish1"
+  $ dts call system/objects/example-dataset/rebuild contexts/example-dataset/zebrafish1
+  
+  # open app1
+  $ dts invoke system/objects/app1/ui_open_qml system/contexts/example-dataset/zebrafish1
+
+=head1 INVOCATION
+
+=head2 dts objects
+
+List available, installed objects. 
+
+Default object are:
+
+ example-dataset  dowload, build, update the example dataset
+ app1             inspect a list of generated/build results
+ app2             UI app to explore a single result
+ dts              internal use
+
+=head2 dts contexts
+
+List available, installed contexts. Contexts are preset configurations, which alter the environment dts is running.
+
+Default contexts are:
+
+ example-dataset  dowload, build, update the example dataset. 
+ installation     used internally
+
+Reserved: L<installation>, L<debug>.
+
+=head3 Examples
+
+Generate plots from subset of dataset, and cache them as invidiual png files. These are later used by the interactive UI.
+
+  # Single file
+
+  $ dts call system/objects/example-dataset/build_plot_write_to_disk system/contexts/example-dataset/zebrafish1/parametersweep1/pset1 data/example-data/zebrafish1/unified/MATs/TN_*.mat
+
+  # Example: using multi-core system for batch processing (using the parallel[1] tool)
+
+  $ find data/example-data/zebrafish1/unified/MATs/TN_*.mat | parallel dts call system/objects/example-dataset/build_plot_write_to_disk system/contexts/example-dataset/zebrafish1/parametersweep1/pset1 {}
+
+=head1 SESSIONS
+
+This is an advanced feature. Sessions can be used to store current information, which can be retrieved at a later situation. Per default they do not expire..
+
+Note that L<_current> is a reserved <session-id>.
+
+=head2 Examples
+
+  # This command can be abbreviated
+
+  $ dts call system/objects/app1/ui_open_qml system/contexts/example-dataset/zebrafish1
+
+  # with following form:
+
+  $ dts session _current set DTS_CONTEXT contexts/example-dataset/zebrafish1
+  $ dts call system/objects/app1/ui_open_qml
+  $ dts call ..
+  $ dts call ..
+
+=head1 AUTHOR
+
+Murat Uenalan <murat.uenalan@uni-konstanz.de>
+
+=head1 REFERENCES
+
+  [1]: @software{
+      tange_2021_5523272,
+      author       = {Tange, Ole},
+      title        = {GNU Parallel 20210922 ('Vindelev')},
+      month        = Sep,
+      year         = 2021,
+      note         = {{GNU Parallel is a general parallelizer to run
+                       multiple serial command line programs in parallel
+                       without changing them.}},
+      publisher    = {Zenodo},
+      doi          = {10.5281/zenodo.5523272},
+      url          = {https://doi.org/10.5281/zenodo.5523272}
+   }
+
+=cut
+
+
+

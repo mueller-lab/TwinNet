@@ -1,0 +1,34 @@
+#!/usr/bin/perl
+
+use strict;
+
+use warnings;
+
+use Path::Class;
+
+use Env qw($STOP_FILENAME);
+
+unless( $STOP_FILENAME )
+{
+    $STOP_FILENAME = '.bash_context';
+}
+
+warn "$0 ..";
+    
+my @result=();
+
+for my $dirpath ( @ARGV )
+{
+    my $command = sprintf "find $dirpath -name '%s' -type f", $STOP_FILENAME;
+
+    warn $command;
+    
+    my @dirs = qx{$command};
+
+    warn "SUBDIR $_" for @dirs;
+
+    for my $subdir ( @dirs )
+    {
+        print qx{dts_helper_updirs $dirpath $subdir};
+    }
+}

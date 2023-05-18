@@ -1,0 +1,59 @@
+
+function dts_command_source_invoke
+{
+
+pod2text << UNTIL_HERE
+
+=pod
+
+=head1 DATASET ($DTS_DATASET_ID)
+
+The dataset is contained in a zip file, which should be manually downloaded. 
+
+=head1 LINK
+
+Will be made available through Code Ocean, or github. 
+
+  Current link, status: $DTS_URI_PREREQ_EXAMPLE_DATASET_SOURCE
+  
+=head1 PREREQUISITES
+
+You can manully download the files. However, alterantively you can download them from the commandline. On Ubuntu, you can use following commands to install these tools:
+
+  $ sudo apt install wget
+
+  # or
+  
+  $ sudo apt install curl
+
+=head1 TARGET DIR
+
+Please download the B<${DTS_DATASET_TARGET_FILENAME}> and unzip manullay into B<$DTS_DIR/data>.
+
+=head1 INSTRUCTIONS
+
+=head2 STEP1: DOWNLOAD REMOTE FILE
+
+Typically, you can use any of these methods:
+
+  $ wget https://.../${DTS_DATASET_TARGET_FILENAME}
+
+  # or
+  
+  $ curl https://.../${DTS_DATASET_TARGET_FILENAME}
+
+=head2 STEP2: UNPACK INTO TARGET DIR
+
+Once the file is succesfully downloaded, use the B<unzip> command in your terminal:
+
+ $ unzip ${DTS_DATASET_TARGET_FILENAME} -d $DTS_DIR/data
+
+=head1 AUTHOR
+
+Murat Uenalan <murat.uenalan@uni-konstanz.de>
+
+=cut
+
+UNTIL_HERE
+
+}

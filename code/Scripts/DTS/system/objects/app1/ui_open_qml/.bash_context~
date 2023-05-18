@@ -1,0 +1,32 @@
+export DTS_COMMAND=ui_open_qml
+
+export DTS_COMMAND_INFO=UI_OPEN_QML
+
+function dts_command_source_invoke
+{
+
+    warn_local "ARGS: $@"
+
+    QML_IMPORT_PATH=$QML_IMPORT_PATH:$DTS_DIR_CACHE_QML
+
+    warn_local DTS_APP=$DTS_APP
+    
+    QML_FILE=$DTS_DIR/ui/unitTests/V0001/ComHyraAppDevTimeStudio/${DTS_APP}-${PARAM_ORGANISM}.qml
+
+    warn_local PARAM_ORGANISM=$PARAM_ORGANISM
+
+    warn_local DTS_DIR=$DTS_DIR
+
+    warn_local QML_FILE=$QML_FILE
+
+    warn_local Set QML_IMPORT_PATH=$QML_IMPORT_PATH
+
+    warn_local qml --desktop $QML_FILE --config/pngRoot="$ALGO1_DIR_PNG" 2\>$DTS_DIR_LOG/dts_command_ui_open.stderr
+
+    qml --desktop $QML_FILE --config/pngRoot="$ALGO1_DIR_PNG" 2>$DTS_DIR_LOG/dts_command_ui_open.stderr
+
+    warn_local "qml exit value=$?"
+
+    warn_local "Saved stderr: $DTS_DIR/dts_command_ui_open.stderr"
+
+}

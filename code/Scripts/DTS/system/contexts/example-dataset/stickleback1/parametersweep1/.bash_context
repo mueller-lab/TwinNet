@@ -1,0 +1,3 @@
+export ALGORITHM=algorithm1
+
+export ALGO1_PARAM_STEP6_YLIM_MAX=15000

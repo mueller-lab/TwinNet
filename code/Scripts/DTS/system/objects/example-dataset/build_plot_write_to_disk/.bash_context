@@ -1,0 +1,32 @@
+
+function dts_command_source_invoke
+{
+    export PARAM_DIR_OUTPUT=${DTS_DIR_PROJECTS_OUT}/${PARAM_ORGANISM}/unified/MATs/mat-algorithm1_local_maxima/neighs_${ALGO1_NEIGHBORHOOD}--threshold_${ALGO1_THRESHOLD}--paramlower_${ALGO1_PARAM_LOWER}/
+
+    warn_local PARAM_DIR_OUTPUT=$PARAM_DIR_OUTPUT
+
+    # if [[ ! -z "$ALGO1_RESET" ]]; then
+    #     echo "Reset $PARAM_DIR_OUTPUT"
+    #     rm -r $PARAM_DIR_OUTPUT `mktemp -d`
+    # fi	
+
+    # if [ -d "$PARAM_DIR_OUTPUT" ]; then
+    #     echo "Already done $PARAM_DIR_OUTPUT"
+    #     du -sch $PARAM_DIR_OUTPUT
+    #     exit
+    # fi	
+    
+    mkdir -p $PARAM_DIR_OUTPUT
+
+    export PARAM_PLOT_START=0
+    export PARAM_PLOT_N=-1
+
+    dts_command_build_plot_write_to_disk_algorithm1.py $*
+
+    echo Done .. generated data/files:
+
+    du -sch $PARAM_DIR_OUTPUT
+    
+}
+
+

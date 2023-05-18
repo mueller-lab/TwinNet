@@ -1,0 +1,89 @@
+{
+    "dir_data": "D:/Deep_learning_3/15_Scripts_for_manuscript_6/Scripts/",
+    "dir_model_zebrafish_original": "D:/Deep_learning_3/15_Scripts_for_manuscript_6/Scripts/twinnet_models/tn_models_zebrafish/model_trained_original/",
+    "dir_model_zebrafish_more_data": "D:/Deep_learning_3/15_Scripts_for_manuscript_6/Scripts/twinnet_models/tn_models_zebrafish/model_trained_more_data/",
+    "dir_scripts": "D:/Deep_learning_3/15_Scripts_for_manuscript_6/Scripts/",
+    "path_json_reference_src_imgs_2": "D:/Deep_learning_3/15_Scripts_for_manuscript_6/Scripts/twinnet_data/images_jsons_reference2/paths_anchor2.json",
+    "paths_json_reference_src_imgs_1": {
+        "json_anchor_1": "D:/Deep_learning_3/15_Scripts_for_manuscript_6/Scripts/twinnet_data/images_jsons_reference/paths_anchor_1.json",
+        "json_anchor_2": "D:/Deep_learning_3/15_Scripts_for_manuscript_6/Scripts/twinnet_data/images_jsons_reference/paths_anchor_2.json",
+        "json_anchor_3": "D:/Deep_learning_3/15_Scripts_for_manuscript_6/Scripts/twinnet_data/images_jsons_reference/paths_anchor_3.json"
+    },
+    "path_model_celegans": "D:/Deep_learning_3/15_Scripts_for_manuscript_6/Scripts/twinnet_models/tn_models_celegans/model_celegans/modelV1.h5",
+    "path_model_medaka": "D:/Deep_learning_3/15_Scripts_for_manuscript_6/Scripts/twinnet_models/tn_models_medaka/model_medaka/modelV1.h5",
+    "path_model_stickleback": "D:/Deep_learning_3/15_Scripts_for_manuscript_6/Scripts/twinnet_models/tn_models_stickleback/model_stickleback/modelV1.h5",
+    "Autoregression_celegans": {
+        "dir_data_src": "D:/Deep_learning_3/15_Scripts_for_manuscript_6/Scripts/twinnet_data/data_train_test_celegans/testData",
+        "path_src_data_test_json": "D:/Deep_learning_3/15_Scripts_for_manuscript_6/Scripts/twinnet_data/data_train_test_celegans/testData/embryos_test.json",
+        "dir_data_dst": "C:/Users/TwinNetworkTest/Documents/TwinNetworkTest/results/07_Autoregression/Celegans"
+    },
+    "Autoregression_medaka": {
+        "dir_data_src": "D:/Deep_learning_3/15_Scripts_for_manuscript_6/Scripts/twinnet_data/data_test_medaka/testData",
+        "path_src_data_test_json": "D:/Deep_learning_3/15_Scripts_for_manuscript_6/Scripts/twinnet_data/data_test_medaka/testData/embryos_test.json",
+        "dir_data_dst": "C:/Users/TwinNetworkTest/Documents/TwinNetworkTest/results/07_Autoregression/Medaka"
+    },
+    "Autoregression_stickleback": {
+        "dir_data_src": "D:/Deep_learning_3/15_Scripts_for_manuscript_6/Scripts/twinnet_data/data_test_stickleback/testData",
+        "path_src_data_test_json": "D:/Deep_learning_3/15_Scripts_for_manuscript_6/Scripts/twinnet_data/data_test_stickleback/testData/embryos_test.json",
+        "dir_data_dst": "C:/Users/TwinNetworkTest/Documents/TwinNetworkTest/results/07_Autoregression/Stickleback"
+    },
+    "Autoregression_zebrafish": {
+        "dir_data_src": "D:/Deep_learning_3/15_Scripts_for_manuscript_6/Scripts/twinnet_data/data_test_similarities_variability",
+        "path_src_data_test_json": "D:/Deep_learning_3/15_Scripts_for_manuscript_6/Scripts/twinnet_data/data_test_similarities_variability/test_embryos_sorted.json",
+        "dir_data_dst": "C:/Users/TwinNetworkTest/Documents/TwinNetworkTest/results/07_Autoregression/Zebrafish"
+    },
+    "Deviation_development_in-batch_detection": {
+        "dir_data_src": "D:/Deep_learning_3/15_Scripts_for_manuscript_6/Scripts/twinnet_data/data_test_deviation_development_in-batch_similarities",
+        "path_src_data_test_json": "D:/Deep_learning_3/15_Scripts_for_manuscript_6/Scripts/twinnet_data/data_test_deviation_development_in-batch_similarities/test_embryos.json",
+        "dir_data_dst": "C:/Users/TwinNetworkTest/Documents/TwinNetworkTest/results/04_Deviation_development_in-batch_detection"
+    },
+    "Deviation_development_inhibitor_detection": {
+        "dir_data_src": "D:/Deep_learning_3/15_Scripts_for_manuscript_6/Scripts/twinnet_data/data_test_deviation_development_inhibitor",
+        "dir_data_dst": "C:/Users/TwinNetworkTest/Documents/TwinNetworkTest/results/06_Deviation_development_inhibitor_detection"
+    },
+    "Deviation_development_predicted_developmental_stages": {
+        "dir_data_dst": "C:/Users/TwinNetworkTest/Documents/TwinNetworkTest/results/05_Deviation_development_predicted_developmental_stages_detection/outputs",
+        "path_src_data_test_json": "D:/Deep_learning_3/15_Scripts_for_manuscript_6/Scripts/twinnet_data/data_test_deviation_development_predicted_developmental_stages/embryos_test.json"
+    },
+    "Image_ordering": {
+        "dir_data_src_e1": "D:/Deep_learning_3/15_Scripts_for_manuscript_6/Scripts/twinnet_data/data_test_image_ordering/images_test/0049--B003--PO35--E005_TN",
+        "dir_data_src_reference": "D:/Deep_learning_3/15_Scripts_for_manuscript_6/Scripts/twinnet_data/data_test_image_ordering/results_method_reference/0049--B003--PO35--E005_Dsilva_etal_2015_method",
+        "dir_data_dst": "C:/Users/TwinNetworkTest/Documents/TwinNetworkTest/results/01_Image_ordering/outputs"
+    },
+    "Similarities_developmental_stages": {
+        "dir_data_src": "D:/Deep_learning_3/15_Scripts_for_manuscript_6/Scripts/twinnet_data/data_test_similarities_developmental_stages/--E000--C012--PO01",
+        "dir_data_dst": "C:/Users/TwinNetworkTest/Documents/TwinNetworkTest/results/02_Similarities_developmental_stages/outputs"
+    },
+    "Similarities_variability_predicted_developmental_stages_variability": {
+        "dir_data_src": "D:/Deep_learning_3/15_Scripts_for_manuscript_6/Scripts/twinnet_data/data_test_similarities_variability",
+        "path_src_data_test_json": "D:/Deep_learning_3/15_Scripts_for_manuscript_6/Scripts/twinnet_data/data_test_similarities_variability/test_embryos_sorted.json",
+        "dir_data_dst": "C:/Users/TwinNetworkTest/Documents/TwinNetworkTest/results/03_Similarities_variability/predicted_developmental_stages"
+    },
+    "Similarities_variability_predicted_similarities_variability": {
+        "dir_data_src": "D:/Deep_learning_3/15_Scripts_for_manuscript_6/Scripts/twinnet_data/data_test_similarities_variability",
+        "path_src_data_test_json": "D:/Deep_learning_3/15_Scripts_for_manuscript_6/Scripts/twinnet_data/data_test_similarities_variability/test_embryos_sorted.json",
+        "dir_data_dst": "C:/Users/TwinNetworkTest/Documents/TwinNetworkTest/results/03_Similarities_variability/predicted_similarities"
+    },
+    "TrainingCElegans": {
+        "dir_data_src": ["D:/Deep_learning_3/15_Scripts_for_manuscript_6/Scripts/twinnet_data/data_train_test_celegans/trainData/exp1"],
+        "dir_data_dst": "C:/Users/TwinNetworkTest/Documents/TwinNetworkTest/results/08_Training_Celegans"
+    },
+    "TrainingMedaka": {
+        "dir_data_src_1": [],
+        "dir_data_src_2": [],
+        "dir_data_src_3": [],
+        "dir_data_dst": "C:/Users/TwinNetworkTest/Documents/TwinNetworkTest/results/09_Training_Medaka"
+    },
+    "TrainingStickleback": {
+        "dir_data_src": [],
+        "dir_data_dst": "C:/Users/TwinNetworkTest/Documents/TwinNetworkTest/results/10_Training_Stickleback"
+    },
+    "TrainingZebrafish1": {
+        "dir_data_src": [],
+        "dir_data_dst": "C:/Users/TwinNetworkTest/Documents/TwinNetworkTest/results/11_Training_Zebrafish1"
+    },
+    "TrainingZebrafish2": {
+        "path_src_data_train_json": "D:/Deep_learning_2/07_Siamese_network_2/211211_Training/training_json/paths_to_files_json_train.json",
+        "dir_data_dst": "C:/Users/TwinNetworkTest/Documents/TwinNetworkTest/results/12_Training_Zebrafish2"
+    }
+}

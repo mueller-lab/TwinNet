@@ -1,0 +1,5 @@
+
+function dts_command_source_invoke
+{
+#        echo find $DTS_DIR_SESSION/* -maxdepth 1 -type f
+}

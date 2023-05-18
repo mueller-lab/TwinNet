@@ -1,0 +1,6 @@
+export DTS_DIR_CACHE_QML=$DTS_DIR_SESSION/cache/QML
+
+export DTS_LINETAG=$(echo dts-$DTS_VERSION|md5sum )
+
+
+

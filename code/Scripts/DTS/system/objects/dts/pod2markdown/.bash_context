@@ -1,0 +1,12 @@
+
+function dts_command_source_invoke
+{
+    warn_local "DTS_OBJECT=$DTS_OBJECT"
+    warn_local "DTS_ARGS=$*"
+    warn_local "DTS_ARG1=$1"
+    warn_local "DTS_ARG2=$2"
+
+    # Alternatively, use pod2markdown
+    
+    perl -MPod::Markdown -e 'Pod::Markdown->new->filter(@ARGV)' $* 
+}

@@ -1,0 +1,11 @@
+export PARAM_ORGANISM=stickleback1
+
+export ALGO1_DIR_MAT=$DTS_DIR_PROJECTS/${PARAM_ORGANISM}/unified/MATs/
+
+export ALGO1_DIR_QML=$DTS_DIR_PROJECTS/${PARAM_ORGANISM}/unified/QML/
+
+export ALGO1_DIR_PNG="/media/sf_Mueller/Documents/GOR-robustness_embryogenesis/Manuscripts/Siamese-networks/data/Stickleback/unified/PNGs"
+
+export DTS_DATASET_ID=example-dataset-0001-${PARAM_ORGANISM}
+
+export DTS_DATASET_TARGET_FILENAME=${DTS_DATASET_ID}.zip

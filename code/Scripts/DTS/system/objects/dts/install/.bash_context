@@ -1,0 +1,52 @@
+
+## reminder: use contexts/ to generate specific instructions
+
+export PATH=$PATH:$PWD/bin
+
+export DTS_DIR=$PWD
+
+export BASH_PROFILE_FILE=~/.bash_profile
+
+function dts_command_source_invoke
+{
+        warn_local "DTS_OBJECT=$DTS_OBJECT"
+        
+        warn_local "CHECK if dts is present in ${BASH_PROFILE_FILE}"
+
+        warn_local grep $DTS_LINETAG $BASH_PROFILE_FILE
+        
+        FLAG_PRESENT=$(grep $DTS_LINETAG $BASH_PROFILE_FILE)
+
+        if [[ "$FLAG_PRESENT" ]]; then
+
+            warn_local "DTS SETUP PRESENT in ${BASH_PROFILE_FILE}"
+
+        else
+            
+            warn_local "DTS SETUP NOT FOUND in ${BASH_PROFILE_FILE}"
+
+            warn_local "CREATE copy to ${DTS_DIR_CACHE}/${BASH_PROFILE_FILE}.bak"
+
+            BASH_PROFILE_FILE_BAK=${DTS_DIR_CACHE}/backup/${BASH_PROFILE_FILE}.bak
+
+            warn_local mkdir -p $(dirname $BASH_PROFILE_FILE_BAK)
+
+            mkdir -p $(dirname $BASH_PROFILE_FILE_BAK)
+
+            warn_local DTS_LINETAG=$DTS_LINETAG
+            
+            cp $BASH_PROFILE_FILE $BASH_PROFILE_FILE_BAK
+
+            BASH_PROFILE_FILE_BAK=$BASH_PROFILE_FILE
+
+            echo "" >>${BASH_PROFILE_FILE_BAK}
+            echo "## BEGIN DTS INSTALLATION # $DTS_LINETAG" >>${BASH_PROFILE_FILE_BAK}
+            echo 'export PATH=$PATH:'$PWD/bin" # $DTS_LINETAG" >>${BASH_PROFILE_FILE_BAK}
+            echo 'export DTS_DIR='$PWD" # $DTS_LINETAG" >>${BASH_PROFILE_FILE_BAK}
+            echo "export DTS_INSTALL_TIMESTAMP='"$(date)"'" "# $DTS_LINETAG" >>${BASH_PROFILE_FILE_BAK}
+            echo "## END"" # $DTS_LINETAG" >>${BASH_PROFILE_FILE_BAK}
+
+            grep -v $DTS_LINETAG $BASH_PROFILE_FILE_BAK >${BASH_PROFILE_FILE_BAK}.cleaned
+            
+        fi
+}      

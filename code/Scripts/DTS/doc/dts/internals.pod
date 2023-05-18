@@ -1,0 +1,7 @@
+=head1 Internal
+
+=head2 Prepare a release
+
+  $ dts call system/objects/dts/pod2markdown system/contexts doc/dts/readme.pod >README.md
+
+=cut

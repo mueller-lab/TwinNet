@@ -1,0 +1,35 @@
+metadata_version: 1
+name: 'TwinNet: Uncovering developmental time and tempo using deep learning'
+description: During animal development, embryos undergo complex morphological changes
+  over time. Differences in developmental tempo between species are emerging as major
+  drivers of evolutionary novelty, but accurate description of these processes is
+  a major challenge. To address this challenge, here we present an automated and unbiased
+  deep learning approach to analyze the similarity between embryos of different time
+  points. Calculation of similarities across stages resulted in complex phenotypic
+  fingerprints, which carry characteristic information about developmental time and
+  tempo. Using this approach, we were able to accurately stage embryos, detect naturally
+  occurring and induced changes in the developmental progression of individual embryos,
+  and derive staging atlases for multiple species de novo in an unsupervised manner.
+  Our approach allows to objectively quantify developmental time and tempo and provides
+  a standardized way to analyze early embryogenesis.
+tags:
+- Biological sciences
+- Developmental biology
+- Computational biology and bioinformatics
+- Machine learning
+authors:
+- name: Nikan Toulany
+  affiliations:
+  - name: University of Konstanz
+- name: Hernán Morales-Navarrete
+  affiliations:
+  - name: University of Konstanz
+- name: Murat Ünalan
+  affiliations:
+  - name: University of Konstanz
+- name: Patrick Müller
+  affiliations:
+  - name: University of Konstanz
+corresponding_contributor:
+  name: Patrick Müller
+  email: patrick.mueller@uni-konstanz.de

@@ -1,0 +1,18 @@
+#!/usr/bin/perl
+
+use strict;
+
+use warnings;
+
+use Env qw($DTS_DIR);
+
+my @found = qx{find $DTS_DIR/bin/dts_command_* -type f -perm +111|grep -v '~' |sort |xargs basename};
+
+chomp( @found );
+
+for( @found )
+{
+    $_ =~ s/^dts_command_//gm;
+
+    print "$_\n";
+}
