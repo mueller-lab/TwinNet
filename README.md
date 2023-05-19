@@ -40,7 +40,7 @@ A Python environment for TwinNet implementation can be created as follows:
 Option 1: Create environment manually
 - (Optional) Create a python environment with Python 3.9
 - Install [Tensorflow](https://www.tensorflow.org/install/)
-- Install other dependencies ([requirements.txt](https://github.com/mueller-lab/TwinNet/blob/main/Installation/requirements.txt))
+- Install other dependencies ([requirements.txt](https://github.com/mueller-lab/TwinNet/blob/main/installation/requirements.txt))
 
 ```
 conda create -n 'twinnet' python=3.9 
