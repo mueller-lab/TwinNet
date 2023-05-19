@@ -15,6 +15,7 @@ Twin Network uses deep learning algorithms to learn features of embryos that can
 - Transition between phenotypically distinct developmental stages may be fluid, drawing sharp boundaries is difficult and subjective.
 - Possibly high degree of phenotypic variance even at one developmental stage due to biological variations. Imaging artifacts may make it difficult to image embryos in the same way.
 - Great variation of duration, expression, etc., of embryogenesis between unrelated species, so that this laborious work would have to be performed anew for each species to be studied.
+- 
 All of these steps are ultimately limited to prior knowledge of the process being studied.
 
 Twin Network, on the other hand, uses image-by-image comparisons as the key part of the training. The datasets used for training contain "triplets" of images, consisting of two images of similar embryos and one image of a dissimilar embryo. A minimum of prior information, namely the time stamps of the time-lapse images of the embryos, is used to create these datasets.
