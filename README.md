@@ -10,6 +10,15 @@ This repository provides implementation materials for our manuscript "Uncovering
 # Overview
 During animal development, embryos undergo complex morphological changes over time. Classical atlases of developmental stages are based on careful - but tedious - manual microscopic observation. Idealized images capture the essence of characteristic stages but are subjective, and embryos rarely look the same. We present an automated, unbiased deep learning application for multimodal analyses of developing embryos.
 
+### What is the key part of the Twin Network approach?
+Twin Network uses deep learning algorithms to learn features of embryos that can be extracted of two-dimensional images. If a dataset had to be manually annotated for Twin Network training, however, one would have the same difficulties as in the classical description of embryonic processes (and developmental processes in general): 
+- Transition between phenotypically distinct developmental stages may be fluid, drawing sharp boundaries is difficult and subjective.
+- Possibly high degree of phenotypic variance even at one developmental stage due to biological variations. Imaging artifacts may make it difficult to image embryos in the same way.
+- Great variation of duration, expression, etc., of embryogenesis between unrelated species, so that this laborious work would have to be performed anew for each species to be studied.
+All of these steps ultimately are limited prior to knowledge of the process being studied.
+
+Twin Network, on the other hand, uses image-by-image comparisons as the key part of the training. The datasets used for training contain "triplets" of images, consisting of two images of similar embryos and one image of a dissimilar embryo. A minimum of prior information, namely the time stamps of the time-lapse images of the embryos, is used to create these datasets.
+
 # System Requirements
 ## Hardware requirements
 TwinNet requires only a standard computer with enough RAM to support the operations defined by the user. We recommend the usage of a CUDA-enabled graphics processing unit (GPU) with enough GPU memory to utilize GPU-acceleration of applications.
@@ -47,16 +56,7 @@ pip install tensorflow-addons
 pip install tensorflow_io
 ...
 ```
-
-Option 2: Create environment from [environment.yml](https://github.com/mueller-lab/TwinNet/blob/main/installation/environment.yml) file:
-
-```
-conda env create -f environment.yml
-```
-Please note that with this option the environment name can be changed by changing the corresponding parameter in the environment.yml file.
-
-Option 3: Create environment from [requirements.txt](https://github.com/mueller-lab/TwinNet/blob/main/installation/requirements.txt) file:
-
+Option2: Create environment from [requirements.txt](https://github.com/mueller-lab/TwinNet/blob/main/installation/requirements.txt) file:
 ```
 conda create --name 'twinnet' --file requirements.txt
 ```
@@ -64,8 +64,10 @@ conda create --name 'twinnet' --file requirements.txt
 Typical install time on a standard desktop computer for standard internet connection speeds is approximately 20 min. For installation of CUDA and cuDNN, additional installation time of approximately 1 h and system reboots are required.
 
 # Demo
+To run the demo scripts for Twin Network, corresponding data paths in the config files for Windows or Linux, depending on the operating system, should be adjusted.
+
 ## Run the notebooks for training and testing
-The files are located in the folder [Scripts](https://github.com/mueller-lab/TwinNet/tree/main/Scripts). 
+The files are located in the folder [Scripts](https://github.com/mueller-lab/TwinNet/tree/main/code/Scripts). 
 Modify the paths for the models and image data accordingly.
 
 Run times depend on installed hardware, sample and batch sizes used for the analysis. Examples for approximate durations tested on our system:
