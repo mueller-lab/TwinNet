@@ -47,7 +47,7 @@ Assess the variability of similarity values within a batch of embryos at a simil
 
 <img src="https://raw.githubusercontent.com/mueller-lab/TwinNet/main/data/images/Variability_similarities.svg" width="500">
 
-### 5. [In-batch detection of deviation of development](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/Deviation_development_in-batch_detection.ipynb)
+### 5. [In-batch detection of deviation of development](https://github.com/mueller-lab/TwinNet/blob/main/code/Scripts/Deviation_development_in-batch_detection.ipynb)
 
 Based on similarities between individual sibling embryos from the same batch, assess if an embryo shows deviation from normal embryonic development.
 
