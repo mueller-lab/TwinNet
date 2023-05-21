@@ -1,16 +1,35 @@
 # Twin Network scripts
 This directory of the Twin Network repository contains code implementations for training and testing of the Twin Network.
 
-## Overview
-- [Commonly used scripts](https://github.com/mueller-lab/TwinNet/tree/main/Scripts/tools_V1)
-- [Training](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/Training.ipynb): Train Twin Network models
-- [Testing - Similarities_developmental_stages](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/Similarities_developmental_stages/): Assessment of developmental stages and trajectories with Twin Network generated similarities
-- [Testing - Similarities_variability](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/Similarities_variability/): Assessment of variability of similarities and predicted stages within a batch of embryos.
-- [Testing - Autoregression](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/Inference_autoregression.ipynb): Calculation of similarities for each image of a test embryo with all previous images of the same embryo for an image sequence
-- [Testing - DTS](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/DTS/): Analysis of cosine similarity matrices, e.g. results of self-similarity calculation in autoregression.
+# Overview
+## Configuration files
+- [Configuration file for Linux Operating Systems](https://github.com/mueller-lab/TwinNet/tree/main/code/Scripts/twinnet_config/Linux/config.json)
+- [Configuration file for Windows Operating Systems](https://github.com/mueller-lab/TwinNet/tree/main/code/Scripts/twinnet_config/Windows/config.json)
 
-# Training
-Instructions and descriptions are listed in the corresponding .ipynb file.
+## Training scripts
+1. [Training C. elegans](https://github.com/mueller-lab/TwinNet/blob/main/code/Scripts/Training_Celegans.ipynb)
+2. [Training Medaka](https://github.com/mueller-lab/TwinNet/blob/main/code/Scripts/Training_Medaka.ipynb)
+3. [Training Stickleback](https://github.com/mueller-lab/TwinNet/blob/main/code/Scripts/Training_Stickleback.ipynb)
+4. [Training Zebrafish](https://github.com/mueller-lab/TwinNet/blob/main/code/Scripts/Training_Zebrafish.ipynb) with different images as anchor and positive images
+5. [Training Zebrafish](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/Training_Zebrafish2.ipynb) with the same image as anchor and positive image
+
+## Testing scripts
+1. [Image ordering](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/): Order shuffled images from one image time series acquisition based on image similarities
+2. [Similarities developmental stages](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/): Assessment of developmental stages and trajectories with Twin Network generated similarities
+3. [Similarity variability, predicted developmental stages](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/): Assessment of variability of predicted stages within a batch of embryos.
+4. [Similarity variability, similarities at selected developmental stages](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/): Assessment of variability of similarities within a batch of embryos.
+5. [Deviation of development, in-batch](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/)
+6. [Deviation of development based on predicted developmental stages](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/)
+7. [Deviation of development between groups of drug-treated embryos](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/)
+8. Autoregression: Calculation of similarities for each image of a test embryo with all previous images of the same embryo for an image sequence
+- [Autoregression C. elegans](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/)
+- [Autoregression Medaka](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/)
+- [Autoregression Stickleback](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/)
+- [Autoregression Zebrafish](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/)
+13. [DTS](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/): Analysis of cosine similarity matrices, e.g. results of self-similarity calculation in autoregression.
+
+## Image segmentation scripts
+- [Image segmentation](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/segmentation)
 
 # Testing
 ## Prediction of developmental stages and developmental trajectories
