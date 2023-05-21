@@ -6,6 +6,8 @@ This repository provides implementation materials for our manuscript "Uncovering
 - [System Requirements](https://github.com/mueller-lab/TwinNet#system-requirements)
 - [Installation Guide](https://github.com/mueller-lab/TwinNet#installation-guide)
 - [Demo](https://github.com/mueller-lab/TwinNet#Demo)
+- [Results](https://github.com/mueller-lab/TwinNet#Results)
+- [License](https://github.com/mueller-lab/TwinNet#License)
 
 # Overview
 During animal development, embryos undergo complex morphological changes over time. Classical atlases of developmental stages are based on careful - but tedious - manual microscopic observation. Idealized images capture the essence of characteristic stages but are subjective, and embryos rarely look the same. We present an automated, unbiased deep learning application for multimodal analyses of developing embryos.
