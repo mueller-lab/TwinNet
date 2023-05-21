@@ -2,11 +2,20 @@
 This directory of the Twin Network repository contains code implementations for training and testing of the Twin Network.
 
 # Overview
-## Configuration files
+- [Configuration files](https://github.com/mueller-lab/TwinNet/edit/main/code/Scripts/README.md#Configuration-files)
+- [Training scripts](https://github.com/mueller-lab/TwinNet/edit/main/code/Scripts/README.md#Training-scripts)
+- [Testing scripts](https://github.com/mueller-lab/TwinNet/edit/main/code/Scripts/README.md#Testing-scripts)
+
+# Configuration files
+These files contain paths to saved tensorflow models and datasets. When running the demo test scripts of Twin Network, the operating system is either loaded automatically or specified by the user, and the corresponding data paths are loaded from the corresponding config file. 
 - [Configuration file for Linux Operating Systems](https://github.com/mueller-lab/TwinNet/tree/main/code/Scripts/twinnet_config/Linux/config.json)
 - [Configuration file for Windows Operating Systems](https://github.com/mueller-lab/TwinNet/tree/main/code/Scripts/twinnet_config/Windows/config.json)
 
-## Training scripts
+# Training scripts
+We trained and tested Twin Network for four model organisms: Caenorhabditis elegans (1.), Medaka (Oryzias latipes, 2.), Stickleback (Gasterosteus aculeatus, 3.), and Zebrafish (Danio rerio, 4.). In these training scripts, image triplets were built with three different images. For each image triplet, two images were selected from similar developmental phases and one image was selected from a different developmental phase. For Zebrafish (Danio rerio, 5.), a second training approach was used to train an additional Twin Network model. Instead of selecting two different images as anchor and positive images from similar developmental stages, the anchor image was augmented with image augmentation techniques and used as positive image.
+
+Each training script can be used to train a Twin Network model for a new organism. To this end, image files should be provided with time stamps or acquisition image numbers in their image file names. The corresponding pattern, by which the time stamp or image numbers are indicated should be specified when loading the image paths for preparation of the Twin Network dataset.
+
 1. [Training C. elegans](https://github.com/mueller-lab/TwinNet/blob/main/code/Scripts/Training_Celegans.ipynb)
 2. [Training Medaka](https://github.com/mueller-lab/TwinNet/blob/main/code/Scripts/Training_Medaka.ipynb)
 3. [Training Stickleback](https://github.com/mueller-lab/TwinNet/blob/main/code/Scripts/Training_Stickleback.ipynb)
