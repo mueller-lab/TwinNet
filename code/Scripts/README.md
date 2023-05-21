@@ -20,42 +20,42 @@ Each training script can be used to train a Twin Network model for a new organis
 2. [Training Medaka](https://github.com/mueller-lab/TwinNet/blob/main/code/Scripts/Training_Medaka.ipynb)
 3. [Training Stickleback](https://github.com/mueller-lab/TwinNet/blob/main/code/Scripts/Training_Stickleback.ipynb)
 4. [Training Zebrafish](https://github.com/mueller-lab/TwinNet/blob/main/code/Scripts/Training_Zebrafish.ipynb) with different images as anchor and positive images
-5. [Training Zebrafish](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/Training_Zebrafish2.ipynb) with the same image as anchor and positive image
+5. [Training Zebrafish](https://github.com/mueller-lab/TwinNet/blob/main/code/Scripts/Training_Zebrafish2.ipynb) with the same image as anchor and positive image
 
 ## Testing scripts
 Testing scripts for different usecases of Twin Network are provided with this repository. Sample results are stored inside the [results folder](https://github.com/mueller-lab/TwinNet/tree/main/results).
 
-### 1. [Image ordering](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/)
+### 1. [Image ordering](https://github.com/mueller-lab/TwinNet/blob/main/code/Scripts/Image_ordering.ipynb)
 
 Order shuffled images from one image time series acquisition based on image similarities. Compare ordering results to results generated from benchmark (Dsilva et al., 2015).
 
-### 2. [Prediction of developmental stages and developmental trajectories](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/)
+### 2. [Prediction of developmental stages and developmental trajectories](https://github.com/mueller-lab/TwinNet/blob/main/code/Scripts/Similarities_developmental_stages.ipynb)
 
 Assess and compare developmental stages, and construct developmental trajectories based on predicted developmental stages.
 
 <img src="https://raw.githubusercontent.com/mueller-lab/TwinNet/main/data/images/Figure1b.png" width="400">
 
-### 3. [Assessment of variability of predicted developmental stages](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/)
+### 3. [Assessment of variability of predicted developmental stages](https://github.com/mueller-lab/TwinNet/blob/main/code/Scripts/Similarities_variability_predicted_developmental_stages_variability.ipynb)
 
 Assess the variability of predicted developmental stages within a batch of embryos at a similar age using Twin Network. 
 
 <img src="https://raw.githubusercontent.com/mueller-lab/TwinNet/main/data/images/Figure2a.png" width="800">
 
-### 4. [Assessment of variability of similarities at selected developmental stages](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/)
+### 4. [Assessment of variability of similarities at selected developmental stages](https://github.com/mueller-lab/TwinNet/blob/main/code/Scripts/Similarities_variability_predicted_similarities_variability.ipynb)
 
 Assess the variability of similarity values within a batch of embryos at a similar age using Twin Network.
 
 <img src="https://raw.githubusercontent.com/mueller-lab/TwinNet/main/data/images/Variability_similarities.svg" width="500">
 
-### 5. [In-batch detection of deviation of development](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/)
+### 5. [In-batch detection of deviation of development](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/Deviation_development_in-batch_detection.ipynb)
 
 Based on similarities between individual sibling embryos from the same batch, assess if an embryo shows deviation from normal embryonic development.
 
-### 6. [Deviation of development based on predicted developmental stages](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/)
+### 6. [Deviation of development based on predicted developmental stages](https://github.com/mueller-lab/TwinNet/blob/main/code/Scripts/Deviation_development_predicted_developmental_stages.ipynb)
 
 Based on predicted developmental stages for images of individual sibling embryos from a time series image acquisition, assess if an embryo shows deviation from normal embryonic development.
 
-### 7. [Deviation of development between groups of drug-treated embryos](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/)
+### 7. [Deviation of development between groups of drug-treated embryos](https://github.com/mueller-lab/TwinNet/blob/main/code/Scripts/Deviation_development_inhibitor_detection.ipynb)
 
 Assess average cosine similarities between individual sibling embryos from multiple batches with different treatment conditions. For example, compare similarities between all embryos from a batch of small molecule inhibitor treated embryos with untreated wildtype embryos. Plot the similarities between different treatment groups for each acquisition timepoint of a time series image acquisition.
 
@@ -67,15 +67,15 @@ Self-similarity matrices can be plotted by color-coding high similarity values. 
 
 Instructions and descriptions are listed in the corresponding .ipynb files.
 
-- [Autoregression C. elegans](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/)
-- [Autoregression Medaka](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/)
-- [Autoregression Stickleback](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/)
-- [Autoregression Zebrafish](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/)
+- [Autoregression C. elegans](https://github.com/mueller-lab/TwinNet/blob/main/code/Scripts/Autoregression_Celegans.ipynb)
+- [Autoregression Medaka](https://github.com/mueller-lab/TwinNet/blob/main/code/Scripts/Autoregression_Medaka.ipynb)
+- [Autoregression Stickleback](https://github.com/mueller-lab/TwinNet/blob/main/code/Scripts/Autoregression_Stickleback.ipynb)
+- [Autoregression Zebrafish](https://github.com/mueller-lab/TwinNet/blob/main/code/Scripts/Autoregression_Zebrafish.ipynb)
 
-### 9. [DTS](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/)
+### 9. [DTS](https://github.com/mueller-lab/TwinNet/blob/main/code/Scripts/DTS/)
 Analysis of cosine similarity matrices, e.g. results of self-similarity calculation in autoregression. This is a custom software package to study cosine similarity matrices of image sequences. It contains the dts commandline tool to import and prepare the matrices/images. There is a comprehensive user-interface to browse the results, and explore the images underlying the matrices.
 
-### 10. [Image segmentation](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/segmentation)
+### 10. [Image segmentation](https://github.com/mueller-lab/TwinNet/blob/main/code/Scripts/segmentation)
 Segment images containing multiple zebrafish embryos and create a JSON file for each image with annotations of the positions of the zebrafish embryos. This is a commandline tool for the segmentation of images of multiple zebrafish embryos.
 Track individual embryo positions in time series image acquisitions of a batch of embryos. Cut out the annotated zebrafish embryo image segments and save them sorted by embryos.
 
