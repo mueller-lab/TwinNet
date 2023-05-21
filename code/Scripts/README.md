@@ -22,7 +22,7 @@ Each training script can be used to train a Twin Network model for a new organis
 4. [Training Zebrafish](https://github.com/mueller-lab/TwinNet/blob/main/code/Scripts/Training_Zebrafish.ipynb) with different images as anchor and positive images
 5. [Training Zebrafish](https://github.com/mueller-lab/TwinNet/blob/main/code/Scripts/Training_Zebrafish2.ipynb) with the same image as anchor and positive image
 
-## Testing scripts
+# Testing scripts
 Testing scripts for different usecases of Twin Network are provided with this repository. Sample results are stored inside the [results folder](https://github.com/mueller-lab/TwinNet/tree/main/results).
 
 ### 1. [Image ordering](https://github.com/mueller-lab/TwinNet/blob/main/code/Scripts/Image_ordering.ipynb)
