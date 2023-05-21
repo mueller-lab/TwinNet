@@ -23,41 +23,69 @@ Each training script can be used to train a Twin Network model for a new organis
 5. [Training Zebrafish](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/Training_Zebrafish2.ipynb) with the same image as anchor and positive image
 
 ## Testing scripts
-1. [Image ordering](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/): Order shuffled images from one image time series acquisition based on image similarities
-2. [Similarities developmental stages](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/): Assessment of developmental stages and trajectories with Twin Network generated similarities
-3. [Similarity variability, predicted developmental stages](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/): Assessment of variability of predicted stages within a batch of embryos.
-4. [Similarity variability, similarities at selected developmental stages](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/): Assessment of variability of similarities within a batch of embryos.
-5. [Deviation of development, in-batch](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/)
-6. [Deviation of development based on predicted developmental stages](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/)
-7. [Deviation of development between groups of drug-treated embryos](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/)
-8. Autoregression: Calculation of similarities for each image of a test embryo with all previous images of the same embryo for an image sequence
+Testing scripts for different usecases of Twin Network are provided with this repository. Sample results are stored inside the [results folder](https://github.com/mueller-lab/TwinNet/tree/main/results).
+
+### 1. [Image ordering](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/)
+
+Order shuffled images from one image time series acquisition based on image similarities. Compare ordering results to results generated from benchmark (Dsilva et al., 2015).
+
+### 2. [Prediction of developmental stages and developmental trajectories](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/)
+
+Assess and compare developmental stages, and construct developmental trajectories based on predicted developmental stages.
+
+<img src="https://raw.githubusercontent.com/mueller-lab/TwinNet/main/data/images/Figure1b.png" width="400">
+
+### 3. [Assessment of variability of predicted developmental stages](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/)
+
+Assess the variability of predicted developmental stages within a batch of embryos at a similar age using Twin Network. 
+
+<img src="https://raw.githubusercontent.com/mueller-lab/TwinNet/main/data/images/Figure2a.png" width="800">
+
+### 4. [Assessment of variability of similarities at selected developmental stages](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/)
+
+Assess the variability of similarity values within a batch of embryos at a similar age using Twin Network.
+
+<img src="https://raw.githubusercontent.com/mueller-lab/TwinNet/main/data/images/Variability_similarities.svg" width="500">
+
+### 5. [In-batch detection of deviation of development](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/)
+
+Based on similarities between individual sibling embryos from the same batch, assess if an embryo shows deviation from normal embryonic development.
+
+### 6. [Deviation of development based on predicted developmental stages](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/)
+
+Based on predicted developmental stages for images of individual sibling embryos from a time series image acquisition, assess if an embryo shows deviation from normal embryonic development.
+
+### 7. [Deviation of development between groups of drug-treated embryos](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/)
+
+Assess average cosine similarities between individual sibling embryos from multiple batches with different treatment conditions. For example, compare similarities between all embryos from a batch of small molecule inhibitor treated embryos with untreated wildtype embryos. Plot the similarities between different treatment groups for each acquisition timepoint of a time series image acquisition.
+
+### 8. Autoregression
+
+Calculation of similarities for each image of a test embryo with all previous images of the same embryo for an image sequence. This part of the testing files contains the code for "autoregression" using Twin Network. This means that Twin Network is used to calculate similarities between an image of a test embryo from an image sequence with all previous images of the same embryo. Expected outputs are two-dimensional matrices with values in the range of 0 - 1. Values should be close to 1 when similarities are high. This is expected to be in the period closest to the latest tested acquisition timepoint. High similarity values are expected to form plateaus.
+
+Self-similarity matrices can be plotted by color-coding high similarity values. The viridis palette was used as color map and adjusted to a range that matches the similarity values for clear visualization. High similarity values are expected to arrange along the diagonal of the similarity matrix as rectangles of different sizes, corresponding to the duration of plateaus of high similarity values.
+
+Instructions and descriptions are listed in the corresponding .ipynb files.
+
 - [Autoregression C. elegans](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/)
 - [Autoregression Medaka](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/)
 - [Autoregression Stickleback](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/)
 - [Autoregression Zebrafish](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/)
-13. [DTS](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/): Analysis of cosine similarity matrices, e.g. results of self-similarity calculation in autoregression.
 
-## Image segmentation scripts
-- [Image segmentation](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/segmentation)
+### 9. [DTS](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/)
+Analysis of cosine similarity matrices, e.g. results of self-similarity calculation in autoregression. This is a custom software package to study cosine similarity matrices of image sequences. It contains the dts commandline tool to import and prepare the matrices/images. There is a comprehensive user-interface to browse the results, and explore the images underlying the matrices.
 
-# Testing
-## Prediction of developmental stages and developmental trajectories
-The directory "Similarities_developmental_stages" contains data, code, and example results for the usage of Twin Network to assess and compare developmental stages, and construct developmental trajectories based on predicted developmental stages.
-Instructions and descriptions are listed in the corresponding .ipynb file.
+### 10. [Image segmentation](https://github.com/mueller-lab/TwinNet/blob/main/Scripts/segmentation)
+Segment images containing multiple zebrafish embryos and create a JSON file for each image with annotations of the positions of the zebrafish embryos. This is a commandline tool for the segmentation of images of multiple zebrafish embryos.
+Track individual embryo positions in time series image acquisitions of a batch of embryos. Cut out the annotated zebrafish embryo image segments and save them sorted by embryos.
 
-![Similarity profile](https://raw.githubusercontent.com/mueller-lab/TwinNet/main/data/images/Figure1b.png)
+In the first step, annotations of the test image data are created. To segment images and store image annotations, run the following command with adjusted paths:
+```
+"python main.py -i /path/to/input/data -m /path/to/segmentation/model -o /path/to/save/outputs/to"
+```
+In the second step, the annotations are used and loaded to cut out the image segments. Please note that in order to load the images for cutting, the second script loads the image paths from the annotation files. Thus, moving the image files after generating the annotations and before cutting out the image segments might hinder the second step.
+```
+"python segment.py -i /path/to/annotation/data -o /path/to/save/segments/to"
+```
+<img src="https://raw.githubusercontent.com/mueller-lab/TwinNet/main/data/images/Segmentation.png" width="800">
 
-## Assessment of variability of similarities and predicted stages
-The directory "Similarities_variability" contains data, code, and example results for the analysis of the variability of predicted similarities and developmental stages using Twin Network. Instructions and descriptions are listed in the corresponding .ipynb file.
-
-![Variability](https://raw.githubusercontent.com/mueller-lab/TwinNet/main/data/images/Figure2a.png)
-
-## Autoregression
-This part of the testing files contains the code for "autoregression" using Twin Network. This means that Twin Network is used to calculate similarities between an image of a test embryo from an image sequence with all previous images of the same embryo. Expected outputs are two-dimensional matrices with values in the range of 0 - 1. Values should be close to 1 when similarities are high. This is expected to be in the period closest to the latest tested acquisition timepoint. High similarity values are expected to form plateaus.
-
-Self-similarity matrices can be plotted by color-coding high similarity values. The viridis palette was used as color map and adjusted to a range that matches the similarity values for clear visualization. High similarity values are expected to arrange along the diagonal of the similarity matrix as rectangles of different sizes, corresponding to the duration of plateaus of high similarity values.
-
-Instructions and descriptions are listed in the corresponding .ipynb file. To recreate similarity matrices generated for the zebrafish embryo in Fig. 4, use data from Twin Network Dataset 024, well -A005--PO01, embryo E003.
-
-## DTS
-This is a custom software package to study cosine similarity matrices of image sequences. It contains the dts commandline tool to import and prepare the matrices/images. There is a comprehensive user-interface to browse the results, and explore the images underlying the matrices.
