@@ -2,9 +2,9 @@
 This directory of the Twin Network repository contains code implementations for training and testing of the Twin Network.
 
 # Overview
-- [Configuration files](https://github.com/mueller-lab/TwinNet/main/code/Scripts#Configuration files)
-- [Training scripts](https://github.com/mueller-lab/TwinNet/main/code/Scripts#Training-scripts)
-- [Testing scripts](https://github.com/mueller-lab/TwinNet/main/code/Scripts#Testing-scripts)
+- [Configuration files](#-Configuration-files)
+- [Training scripts](#-Training-scripts)
+- [Testing scripts](#-Testing-scripts)
 
 # Configuration files
 These files contain paths to saved tensorflow models and datasets. When running the demo test scripts of Twin Network, the operating system is either loaded automatically or specified by the user, and the corresponding data paths are loaded from the corresponding config file. 
