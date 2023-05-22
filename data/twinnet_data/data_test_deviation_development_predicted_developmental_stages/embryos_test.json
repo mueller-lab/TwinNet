@@ -1,29 +1,29 @@
 {
     "paths_normal": [
-        "./twinnet_data/data_test_deviation_development_predicted_developmental_stages/normal/-B005--PO01/E004",
-        "./twinnet_data/data_test_deviation_development_predicted_developmental_stages/normal/-C005--PO01/E000",
-        "./twinnet_data/data_test_deviation_development_predicted_developmental_stages/normal/-D001--PO01/E000",
-        "./twinnet_data/data_test_deviation_development_predicted_developmental_stages/normal/-D001--PO01/E006",
-        "./twinnet_data/data_test_deviation_development_predicted_developmental_stages/normal/-D003--PO01/E001",
-        "./twinnet_data/data_test_deviation_development_predicted_developmental_stages/normal/-D004--PO01/E004",
-        "./twinnet_data/data_test_deviation_development_predicted_developmental_stages/normal/-E005--PO01/E002",
-        "./twinnet_data/data_test_deviation_development_predicted_developmental_stages/normal/-F001--PO01/E000",
-        "./twinnet_data/data_test_deviation_development_predicted_developmental_stages/normal/-F008--PO01/E001",
-        "./twinnet_data/data_test_deviation_development_predicted_developmental_stages/normal/-G003--PO01/E001",
-        "./twinnet_data/data_test_deviation_development_predicted_developmental_stages/normal/-G007--PO01/E002",
-        "./twinnet_data/data_test_deviation_development_predicted_developmental_stages/normal/-G008--PO01/E001",
-        "./twinnet_data/data_test_deviation_development_predicted_developmental_stages/normal/-G010--PO01/E000",
-        "./twinnet_data/data_test_deviation_development_predicted_developmental_stages/normal/-H004--PO01/E000"
+        "./-B005--PO01/E004",
+        "./-C005--PO01/E000",
+        "./-D001--PO01/E000",
+        "./-D001--PO01/E006",
+        "./-D003--PO01/E001",
+        "./-D004--PO01/E004",
+        "./-E005--PO01/E002",
+        "./-F001--PO01/E000",
+        "./-F008--PO01/E001",
+        "./-G003--PO01/E001",
+        "./-G007--PO01/E002",
+        "./-G008--PO01/E001",
+        "./-G010--PO01/E000",
+        "./-H004--PO01/E000"
     ],
     "paths_disintegrating": [
-        "./twinnet_data/data_test_deviation_development_predicted_developmental_stages/disintegrating/-A002--PO01/E007",
-        "./twinnet_data/data_test_deviation_development_predicted_developmental_stages/disintegrating/-C009--PO01/E002",
-        "./twinnet_data/data_test_deviation_development_predicted_developmental_stages/disintegrating/-E004--PO01/E004"
+        "./-A002--PO01/E007",
+        "./-C009--PO01/E002",
+        "./-E004--PO01/E004"
     ],
     "paths_patterning_defects": [
-        "./twinnet_data/data_test_deviation_development_predicted_developmental_stages/patterning_defects/-A003--PO01/E000",
-        "./twinnet_data/data_test_deviation_development_predicted_developmental_stages/patterning_defects/-B009--PO01/E008",
-        "./twinnet_data/data_test_deviation_development_predicted_developmental_stages/patterning_defects/-C006--PO01/E001",
-        "./twinnet_data/data_test_deviation_development_predicted_developmental_stages/patterning_defects/-D011--PO01/E001"
+        "./-A003--PO01/E000",
+        "./-B009--PO01/E008",
+        "./-C006--PO01/E001",
+        "./-D011--PO01/E001"
     ]
 }
