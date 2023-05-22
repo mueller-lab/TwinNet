@@ -5,6 +5,7 @@ This directory of the Twin Network repository contains code implementations for 
 - [Configuration files](#Configuration-files)
 - [Training scripts](#Training-scripts)
 - [Testing scripts](#Testing-scripts)
+- [Data access](#Data-access)
 
 # Configuration files
 These files contain paths to saved tensorflow models and datasets. When running the demo test scripts of Twin Network, the operating system is either loaded automatically or specified by the user, and the corresponding data paths are loaded from the corresponding config file. 
@@ -89,3 +90,24 @@ In the second step, the annotations are used and loaded to cut out the image seg
 ```
 <img src="https://raw.githubusercontent.com/mueller-lab/TwinNet/main/data/images/Segmentation.png" width="800">
 
+# Data access
+The image data for the Twin Network zebrafish applications are published under https://dx.doi.org/10.48606/50, and are publicly retrievable for the Twin Network C. elegans, Medaka, and Stickleback applications. The following table provides an overview on where to load the used datasets.
+
+| Application | Test dataset | File paths in test dataset | Reference dataset |
+| ---------- | --- | --- | --- |
+| Reference dataset 1 | https://dx.doi.org/10.48606/80 | File paths for three reference data sets listed in three [JSON files](https://github.com/mueller-lab/TwinNet/tree/main/data/twinnet_data/images_jsons_reference)| n/a |
+| Reference dataset 2 | https://dx.doi.org/10.48606/80 | File paths for three reference data sets listed in one [JSON file](https://github.com/mueller-lab/TwinNet/tree/main/data/twinnet_data/images_jsons_reference2/dataset_reference2_paths_anchors.json), 8 additional images provided separately in the [dataset folder](https://github.com/mueller-lab/TwinNet/tree/main/data/twinnet_data/images_jsons_reference2/) | n/a |
+| Image ordering | https://dx.doi.org/10.48606/68 | TwinNetworkDataset010/-B003--PO35/E005 | n/a |
+| Prediction of developmental stages and developmental trajectories | https://dx.doi.org/10.48606/75 | TwinNetworkDataset018/-C012--PO01/E000 | Reference dataset 1 |
+| Assessment of variability of predicted developmental stages | https://dx.doi.org/10.48606/82 | File paths for test embryos are listed in a [JSON file](https://github.com/mueller-lab/TwinNet/tree/main/data/twinnet_data/data_test_similarities_variability/test_embryos_sorted.json) | Reference dataset 1 |
+| Assessment of variability of similarities at selected developmental stages | https://dx.doi.org/10.48606/82 | File paths for test embryos are listed in a [JSON file](https://github.com/mueller-lab/TwinNet/tree/main/data/twinnet_data/data_test_similarities_variability/test_embryos_sorted.json) | n/a |
+| In-batch detection of deviation of development | https://dx.doi.org/10.48606/76 | TwinNetworkDataset017/-B006--PO01/ | n/a |
+| Deviation of development based on predicted developmental stages | https://dx.doi.org/10.48606/79 | File paths for test embryos are listed in a [JSON file](https://github.com/mueller-lab/TwinNet/tree/main/data/twinnet_data/data_test_deviation_development_predicted_developmental_stages/embryos_test.json) | Reference dataset 2 |
+| Deviation of development between groups of drug-treated embryos, Wildtype | https://dx.doi.org/10.48606/76 | TwinNetworkDataset017/-B002--PO01/ | n/a |
+| Deviation of development between groups of drug-treated embryos, BMP-inhibitor treated | | | n/a |
+| Deviation of development between groups of drug-treated embryos, Nodal-inhibitor treated | | | n/a |
+| Autoregression C. elegans | | | n/a |
+| Autoregression Medaka | | | n/a |
+| Autoregression Stickleback | | | n/a |
+| Autoregression Zebrafish | https://dx.doi.org/10.48606/82 | TwinNetworkDataset024/-A003--PO01/E003/ | n/a |
+| Image segmentation | [Segmentation demo data](https://github.com/mueller-lab/TwinNet/tree/main/data/segmentation_data/) | Demo test data is stored in the [dataset folder](https://github.com/mueller-lab/TwinNet/tree/main/data/segmentation_data/)| n/a |
