@@ -104,8 +104,8 @@ The image data for the Twin Network zebrafish applications are published under h
 | In-batch detection of deviation of development | https://dx.doi.org/10.48606/76 | TwinNetworkDataset017/-B006--PO01/ | n/a |
 | Deviation of development based on predicted developmental stages | https://dx.doi.org/10.48606/79 | File paths for test embryos are listed in a [JSON file](https://github.com/mueller-lab/TwinNet/tree/main/data/twinnet_data/data_test_deviation_development_predicted_developmental_stages/embryos_test.json) | Reference dataset 2 |
 | Deviation of development between groups of drug-treated embryos, Wildtype | https://dx.doi.org/10.48606/76 | TwinNetworkDataset017/-B002--PO01/ | n/a |
-| Deviation of development between groups of drug-treated embryos, BMP-inhibitor treated | | | n/a |
-| Deviation of development between groups of drug-treated embryos, Nodal-inhibitor treated | | | n/a |
+| Deviation of development between groups of drug-treated embryos, BMP-inhibitor treated | https://cloud.uni-konstanz.de/index.php/s/kX7Z3PoZ2g2qHyC | Segments_BMP/-C001--PO01/ | n/a |
+| Deviation of development between groups of drug-treated embryos, Nodal-inhibitor treated | https://cloud.uni-konstanz.de/index.php/s/eFGpMn9bTPncQc7 | Segments_Nodal/C002/ | n/a |
 | Autoregression C. elegans | | | n/a |
 | Autoregression Medaka | | | n/a |
 | Autoregression Stickleback | | | n/a |
