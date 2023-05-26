@@ -106,8 +106,8 @@ The image data for the Twin Network zebrafish applications are published under h
 | Deviation of development between groups of drug-treated embryos, Wildtype | https://dx.doi.org/10.48606/76 | TwinNetworkDataset017/-B002--PO01/ | n/a |
 | Deviation of development between groups of drug-treated embryos, BMP-inhibitor treated | https://cloud.uni-konstanz.de/index.php/s/DTG3Z8jc7kQCAyx | Segments_BMP/-C001--PO01/ | n/a |
 | Deviation of development between groups of drug-treated embryos, Nodal-inhibitor treated | https://cloud.uni-konstanz.de/index.php/s/eFGpMn9bTPncQc7 | Segments_Nodal/C002/ | n/a |
-| Autoregression C. elegans | | | n/a |
-| Autoregression Medaka |https://dx.doi.org/10.48606/34 | | n/a |
-| Autoregression Stickleback |https://dx.doi.org/10.48606/33 | | n/a |
+| Autoregression C. elegans |https://www.youtube.com/watch?v=M2ApXHhYbaw&t=1s&ab_channel=Hymanlab | n/a  | n/a |
+| Autoregression Medaka |https://dx.doi.org/10.48606/34 |/210519_Normal/A001/ | n/a |
+| Autoregression Stickleback |https://dx.doi.org/10.48606/33 | /210709_Normal/XY10/| n/a |
 | Autoregression Zebrafish | https://dx.doi.org/10.48606/82 | TwinNetworkDataset024/-A003--PO01/E003/ | n/a |
 | Image segmentation | [Segmentation demo data](https://github.com/mueller-lab/TwinNet/tree/main/data/segmentation_data/) | Demo test data is stored in the [dataset folder](https://github.com/mueller-lab/TwinNet/tree/main/data/segmentation_data/)| n/a |
