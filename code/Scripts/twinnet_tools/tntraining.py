@@ -192,7 +192,7 @@ class TNToolsTrainingPaths:
         self.img_height_min = img_height_min
         self.img_width = img_width
         self.img_width_min = img_width_min
-        self.index_limit = 400
+        self.index_limit = 10000
         self.max_timepoint_variation = 1
         self.pattern_glob_files = kwargs.get("pattern_glob_files",
                                              "*.tif")
@@ -215,7 +215,7 @@ class TNToolsTrainingPaths:
             embryo directories to be excluded from
             the dataset.
 
-        Returns
+        Returnsf
         -------
         paths_to_exclude: list
             Directory paths of embryo subdirectories
@@ -394,12 +394,12 @@ class TNToolsTrainingPaths:
         for path in paths_complete:
             name_file = os.path.basename(path)
             index = int(re.search(self.pattern_index,
-                                  name_file).group()[self.pattern_index_start:])
+                                  name_file).group()[self.pattern_index_start:])                 
             if index < self.index_limit:
                 if index in labels:
                     labels[index] += [path]
                 else:
-                    labels[index] = [path]
+                    labels[index] = [path]     
         return labels
 
     def pair_binary_fn(self, labels, num_pairs):

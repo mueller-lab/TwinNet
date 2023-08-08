@@ -246,8 +246,8 @@ class TNToolsPaths:
     This part of the toolset is used to manage input data paths.
     """
     def __init__(self):
-        self.img_format = ['*CO6*.tif']
-        self.img_format_expand = ['*CO6*.jpg', '*CO6*.png', '*CO6*.tif']
+        self.img_format = ['*CO6*.tif', '*.tif']
+        self.img_format_expand = ['*CO6*.jpg', '*CO6*.png', '*CO6*.tif', '*.tif']
 
     def dir_to_img_paths(self, path_src):
         """

@@ -1,7 +1,7 @@
 import glob
 import matplotlib.pyplot as plt
 import pandas as pd
-
+import seaborn as sns
 
 class TNToolsArrowPlot:
     """
@@ -27,11 +27,11 @@ class TNToolsArrowPlot:
         )
 
         self.plot_color_normal = "#c1d831"
-        self.plot_color_maldev = "#431c53"
+        self.plot_color_maldev = 'Red'# "#431c53"
         self.plot_fontsize_large = 8
         self.plot_fontsize_small = 6
         self.plot_linewidth = 1
-        self.plot_size_marker = self.plot_linewidth * 3
+        self.plot_size_marker = self.plot_linewidth 
 
     def __call__(self, paths_normal, paths_maldev):
         """Calculate developmental speeds of embryos."""
@@ -139,15 +139,17 @@ class TNToolsArrowPlot:
 
         # Plot predicted stages for images of normal embryos
         # as scatter plot
-        plt.scatter(var_indices_pred_normal,
-                    var_indices_df_normal,
-                    c=self.plot_color_normal,
-                    s=self.plot_size_marker)
+        #plt.scatter(var_indices_pred_normal,
+        #            var_indices_df_normal,
+        #             c=self.plot_color_normal,
+         #            s=self.plot_size_marker)
+        sns.kdeplot(x=var_indices_pred_normal, y=var_indices_df_normal, cmap="Blues", shade=True, bw_adjust=.9)
 
         # Plot predicted stages for images of maldeveloping embryos
         # as scatter plot
         plt.scatter(var_indices_pred_maldev,
                     var_indices_df_maldev,
+                    edgecolors='none',
                     c=[self.plot_color_maldev] * len(var_indices_df_maldev),
                     s=self.plot_size_marker)
 

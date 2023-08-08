@@ -14,7 +14,7 @@ class TNToolsAutoregression:
     This part of the toolset is used to calculate self-similarities
     at each index of a time-lapse image sequence.
     """
-    def __init__(self, size_img=224, size_img_min=300):
+    def __init__(self, size_img=224, size_img_min=250):
         self.ljust = 50
         self.tools_general = TNToolsGeneral()
         self.tools_embeddings = TNToolsEmbeddings(size_img=size_img,
@@ -172,6 +172,7 @@ class TNToolsAutoregression:
         self.__init__()
         # Load image paths from directory
         paths_imgs = self.tools_paths.dir_to_img_paths(path_dir)
+        print(len(paths_imgs))
         # Load images
         array_imgs = self.tools_images.fn_images_tiff_parse(paths_imgs)
         # Calculate embeddings for images
