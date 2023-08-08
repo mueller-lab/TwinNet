@@ -91,7 +91,13 @@ In the second step, the annotations are used and loaded to cut out the image seg
 <img src="https://raw.githubusercontent.com/mueller-lab/TwinNet/main/data/images/Segmentation.png" width="800">
 
 # Data access
-The image data for the Twin Network zebrafish applications are published under https://dx.doi.org/10.48606/50, and are publicly retrievable for the Twin Network C. elegans, Medaka, and Stickleback applications. The following table provides an overview on where to load the used datasets.
+The image data for the Twin Network zebrafish applications are published under https://dx.doi.org/10.48606/50, and are publicly retrievable for the Twin Network C. elegans, Medaka, and Stickleback applications.
+### Training scripts
+The following datasets were used to train the Twin Network models for zebrafish applications:
+- [tn_models_zebrafish/model_trained_original](https://github.com/mueller-lab/TwinNet/tree/main/data/twinnet_models/tn_models_zebrafish/model_trained_original): TwinNetworkDataset015, TwinNetworkDataset017
+- [tn_models_zebrafish/model_trained_more_data](https://github.com/mueller-lab/TwinNet/tree/main/data/twinnet_models/tn_models_zebrafish/model_trained_more_data): TwinNetworkDataset001 - TwinNetworkDataset010, TwinNetworkDataset012 - TwinNetworkDataset034
+### Testing scripts
+The following table provides an overview on where to load the used datasets.
 
 | Application | Test dataset | File paths in test dataset | Reference dataset |
 | ---------- | --- | --- | --- |
