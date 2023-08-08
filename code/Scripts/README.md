@@ -109,9 +109,7 @@ The following table provides an overview on where to load the used datasets.
 | Assessment of variability of similarities at selected developmental stages | https://dx.doi.org/10.48606/82 | File paths for test embryos are listed in a [JSON file](https://github.com/mueller-lab/TwinNet/tree/main/data/twinnet_data/data_test_similarities_variability/test_embryos_sorted.json) | n/a |
 | In-batch detection of deviation of development | https://dx.doi.org/10.48606/76 | TwinNetworkDataset017/-B006--PO01/ | n/a |
 | Deviation of development based on predicted developmental stages | https://dx.doi.org/10.48606/79 | File paths for test embryos are listed in a [JSON file](https://github.com/mueller-lab/TwinNet/tree/main/data/twinnet_data/data_test_deviation_development_predicted_developmental_stages/embryos_test.json) | Reference dataset 2 |
-| Deviation of development between groups of drug-treated embryos, Wildtype | https://dx.doi.org/10.48606/76 | TwinNetworkDataset017/-B002--PO01/ | n/a |
-| Deviation of development between groups of drug-treated embryos, BMP-inhibitor treated | https://cloud.uni-konstanz.de/index.php/s/DTG3Z8jc7kQCAyx | Segments_BMP/-C001--PO01/ | n/a |
-| Deviation of development between groups of drug-treated embryos, Nodal-inhibitor treated | https://cloud.uni-konstanz.de/index.php/s/eFGpMn9bTPncQc7 | Segments_Nodal/C002/ | n/a |
+| Deviation of development between groups of drug-treated embryos |  https://dx.doi.org/10.48606/29 |  n/a/ | n/a |
 | Autoregression C. elegans |https://www.youtube.com/watch?v=M2ApXHhYbaw&t=1s&ab_channel=Hymanlab | n/a  | n/a |
 | Autoregression Medaka |https://dx.doi.org/10.48606/34 |/210519_Normal/A001/ | n/a |
 | Autoregression Stickleback |https://dx.doi.org/10.48606/33 | /210709_Normal/XY10/| n/a |
