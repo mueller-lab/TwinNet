@@ -9,7 +9,7 @@ This an step-by-step tutorial to starte working with TwinNet in Windows10.
 
 
 # Installation
-We will use miniconda to create a TwinNet enviroment
+We will use [miniconda](https://docs.conda.io/en/latest/miniconda.html) to create a TwinNet enviroment
   1. Go to https://docs.conda.io/en/latest/miniconda.html and download the Miniconda version that works for your platform
      
   ![plot](./images/miniconda.png)
