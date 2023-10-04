@@ -1,34 +1,42 @@
 # Twin Network step-by-step tutorial
-This repository provides implementation materials for our manuscript "Uncovering developmental time and tempo using deep learning".
+This an step-by-step tutorial to starte working with TwinNet in Windows10.
 
 ## Content
 - [Installation](https://github.com/mueller-lab/TwinNet/tree/main/installation#installation)
-- [Training using zebrafish image data](https://github.com/mueller-lab/TwinNet#system-requirements)
-- [Test using zebrafish image data](https://github.com/mueller-lab/TwinNet#installation-guide)
+- [Training TwinNet using zebrafish image data](https://github.com/mueller-lab/TwinNet#system-requirements)
+- [Test TwinNet using zebrafish image data](https://github.com/mueller-lab/TwinNet#installation-guide)
 - [Problem solving in jupyter](https://github.com/mueller-lab/TwinNet#Demo)
 
 
 # Installation
-  1. Go to https://github.com/mueller-lab/TwinNet#installation-guide
-  2. Go to https://docs.conda.io/en/latest/miniconda.html and download the Miniconda version that works for your platform
+We will use miniconda to create a TwinNet enviroment
+  1. Go to https://docs.conda.io/en/latest/miniconda.html and download the Miniconda version that works for your platform
   ![plot](./images/miniconda.png)
-  4. 
 
-### What is the key part of the Twin Network approach?
-Twin Network uses deep learning algorithms to learn features of embryos that can be extracted from two-dimensional images. Manual annotation of a training dataset for this type of algorithm, however, would have the same difficulties as classical descriptions of embryonic development:
-- Transitions between distinct developmental stages may be fluid, which makes drawing sharp boundaries difficult and subjective
-- Phenotypes may vary even at similar developmental stages due to biological variations
-- Imaging artifacts may appear due to technical variations
-- Laborious annotations would have to be repeated for each species to be studied, due to variations of embryonic development between different species
+  2. Download and install Miniconda
+  3. To install TwinNet: Go to https://github.com/mueller-lab/TwinNet#installation-guide
+  4. You will now have three options 
+    a. We recommend Option 1: Create Python environment from https://github.com/mueller-lab/TwinNet/blob/main/installation/twinnetworkenv.yml
+    b. This manual will continue with Option 1
+  ![plot](./images/install_guide.png)
 
-All of these steps are ultimately limited to prior knowledge of the process being studied.
+  5. Go to https://github.com/mueller-lab/TwinNet/blob/main/installation/twinnetworkenv.yml and download the raw file
+  ![plot](./images/yml_file.png)
 
-By its design, on the other hand, Twin Network circumvents these limitations: During training, the network is incentivised to learn features that can be found at specific developmental stages from image-to-image comparisons, using images of embryos at similar and different developmental stages as training data. To require a minimum of preliminary information, only the time stamps of the time-lapse images of the embryos are needed for dataset preparation.
+  6. Open “Anaconda Powershell Prompt” and copy the “twinnetworkenv.yml” raw file into the folder shown in the Anaconda Powershell Prompt command window
+    a. In this case the file has to be copied into the folder “andre” in “C:\Users”
+  ![plot](./images/shell_yml.png)
 
-### How to use Twin Network
-This repository contains training and testing applications for Twin Network, including pre-trained models for the model organisms _Caenorhabditis elegans_, Medaka (_Oryzias latipes_), Stickleback (_Gasterosteus aculeatus_), and Zebrafish (_Danio rerio_). Installation instructions are listed below.
+  7. Copy the command “conda env create -f twinnetworkenv.yml” into the Anaconda Powershell Prompt command window and run it by pressing enter
+  ![plot](./images/shell_yml_exe.png)
 
-# System Requirements
+    a. Packages are now automatically downloaded, extracted and TwinNet installed.
+    ![plot](./images/shell_yml_installing.png)
+    b. Typical installation time on a standard desktop computer with standard internet connection speeds is approximately 20 min. 
+    c. When the installation is finished the initial command line is shown on the Anaconda Powershell Prompt
+    ![plot](./images/shell_yml_installing_done.png)
+
+# Training TwinNet using zebrafish image data
 ## Hardware requirements
 TwinNet requires only a standard computer with enough RAM to support the operations defined by the user. We recommend the usage of a CUDA-enabled graphics processing unit (GPU) with enough GPU memory to utilize GPU-acceleration of applications.
 
