@@ -19,7 +19,7 @@ We will use miniconda to create a TwinNet enviroment
   5. You will now have three options  
      - We recommend Option 1: Create Python environment from https://github.com/mueller-lab/TwinNet/blob/main/installation/twinnetworkenv.yml  
      - This manual will continue with Option 1
-     - ![plot](./images/install_guide.png)
+       ![plot](./images/install_guide.png)
 
   6. Go to https://github.com/mueller-lab/TwinNet/blob/main/installation/twinnetworkenv.yml and download the raw file
   ![plot](./images/yml_file.png)
@@ -31,10 +31,10 @@ We will use miniconda to create a TwinNet enviroment
   9. Copy the command “conda env create -f twinnetworkenv.yml” into the Anaconda Powershell Prompt command window and run it by pressing enter  
       ![plot](./images/shell_yml_exe.png)
      - Packages are now automatically downloaded, extracted and TwinNet installed.
-     - ![plot](./images/shell_yml_installing.png)
+       ![plot](./images/shell_yml_installing.png)
      - Typical installation time on a standard desktop computer with standard internet connection speeds is approximately 20 min.
      - When the installation is finished the initial command line is shown on the Anaconda Powershell Prompt
-     - ![plot](./images/shell_yml_installing_done.png)
+       ![plot](./images/shell_yml_installing_done.png)
 
 # Training TwinNet using zebrafish image data
 ## Hardware requirements
