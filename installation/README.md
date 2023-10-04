@@ -3,7 +3,7 @@ This an step-by-step tutorial to starte working with TwinNet in Windows10.
 
 ## Content
 - [Installation](https://github.com/mueller-lab/TwinNet/tree/main/installation#installation)
-- [Training TwinNet using zebrafish image data](https://github.com/mueller-lab/TwinNet#system-requirements)
+- [Training TwinNet using zebrafish image data](https://github.com/mueller-lab/TwinNet/tree/main/installation#training-twinnet-using-zebrafish-image-data)
 - [Test TwinNet using zebrafish image data](https://github.com/mueller-lab/TwinNet#installation-guide)
 - [Problem solving in jupyter](https://github.com/mueller-lab/TwinNet#Demo)
 
@@ -11,29 +11,36 @@ This an step-by-step tutorial to starte working with TwinNet in Windows10.
 # Installation
 We will use miniconda to create a TwinNet enviroment
   1. Go to https://docs.conda.io/en/latest/miniconda.html and download the Miniconda version that works for your platform
+     
   ![plot](./images/miniconda.png)
 
-  2. Download and install Miniconda
-  3. To install TwinNet: Go to https://github.com/mueller-lab/TwinNet#installation-guide
-  4. You will now have three options 
-    a. We recommend Option 1: Create Python environment from https://github.com/mueller-lab/TwinNet/blob/main/installation/twinnetworkenv.yml
-    b. This manual will continue with Option 1
-  ![plot](./images/install_guide.png)
+  3. Download and install Miniconda
+  4. To install TwinNet: Go to https://github.com/mueller-lab/TwinNet#installation-guide
+  5. You will now have three options
+     
+    - We recommend Option 1: Create Python environment from https://github.com/mueller-lab/TwinNet/blob/main/installation/twinnetworkenv.yml
+    - This manual will continue with Option 1
+    
+    ![plot](./images/install_guide.png)
 
-  5. Go to https://github.com/mueller-lab/TwinNet/blob/main/installation/twinnetworkenv.yml and download the raw file
+  6. Go to https://github.com/mueller-lab/TwinNet/blob/main/installation/twinnetworkenv.yml and download the raw file
   ![plot](./images/yml_file.png)
 
-  6. Open “Anaconda Powershell Prompt” and copy the “twinnetworkenv.yml” raw file into the folder shown in the Anaconda Powershell Prompt command window
+  7. Open “Anaconda Powershell Prompt” and copy the “twinnetworkenv.yml” raw file into the folder shown in the Anaconda Powershell Prompt command window
     a. In this case the file has to be copied into the folder “andre” in “C:\Users”
   ![plot](./images/shell_yml.png)
 
-  7. Copy the command “conda env create -f twinnetworkenv.yml” into the Anaconda Powershell Prompt command window and run it by pressing enter
+  8. Copy the command “conda env create -f twinnetworkenv.yml” into the Anaconda Powershell Prompt command window and run it by pressing enter
   ![plot](./images/shell_yml_exe.png)
 
-    a. Packages are now automatically downloaded, extracted and TwinNet installed.
+    8.1. Packages are now automatically downloaded, extracted and TwinNet installed.
+    
     ![plot](./images/shell_yml_installing.png)
-    b. Typical installation time on a standard desktop computer with standard internet connection speeds is approximately 20 min. 
-    c. When the installation is finished the initial command line is shown on the Anaconda Powershell Prompt
+    
+    8.2. Typical installation time on a standard desktop computer with standard internet connection speeds is approximately 20 min. 
+    
+    8.3. When the installation is finished the initial command line is shown on the Anaconda Powershell Prompt
+    
     ![plot](./images/shell_yml_installing_done.png)
 
 # Training TwinNet using zebrafish image data
