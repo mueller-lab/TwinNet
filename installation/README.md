@@ -1,16 +1,16 @@
-# Twin Network
+# Twin Network step-by-step tutorial
 This repository provides implementation materials for our manuscript "Uncovering developmental time and tempo using deep learning".
 
 ## Content
-- [Overview](https://github.com/mueller-lab/TwinNet#overview)
-- [System Requirements](https://github.com/mueller-lab/TwinNet#system-requirements)
-- [Installation Guide](https://github.com/mueller-lab/TwinNet#installation-guide)
-- [Demo](https://github.com/mueller-lab/TwinNet#Demo)
-- [Results](https://github.com/mueller-lab/TwinNet#Results)
-- [License](https://github.com/mueller-lab/TwinNet#License)
+- [Installation](https://github.com/mueller-lab/TwinNet#overview)
+- [Training using zebrafish image data](https://github.com/mueller-lab/TwinNet#system-requirements)
+- [Test using zebrafish image data](https://github.com/mueller-lab/TwinNet#installation-guide)
+- [Problem solving in jupyter](https://github.com/mueller-lab/TwinNet#Demo)
 
-# Overview
-During animal development, embryos undergo complex morphological changes over time. Classical atlases of developmental stages are based on careful - but tedious - manual microscopic observation. Idealized images capture the essence of characteristic stages but are subjective, and embryos rarely look the same. We present an automated, unbiased deep learning application for multimodal analyses of developing embryos.
+
+# Installation
+  1. Go to https://github.com/mueller-lab/TwinNet#installation-guide
+  2. Go to https://docs.conda.io/en/latest/miniconda.html and download the Miniconda version that works for your platform 
 
 ### What is the key part of the Twin Network approach?
 Twin Network uses deep learning algorithms to learn features of embryos that can be extracted from two-dimensional images. Manual annotation of a training dataset for this type of algorithm, however, would have the same difficulties as classical descriptions of embryonic development:
