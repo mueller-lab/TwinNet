@@ -2,7 +2,7 @@
 This repository provides implementation materials for our manuscript "Uncovering developmental time and tempo using deep learning".
 
 ## Content
-- [Installation](https://github.com/mueller-lab/TwinNet/edit/main/installation/Installation)
+- [Installation](https://github.com/mueller-lab/TwinNet/tree/main/installation#installation)
 - [Training using zebrafish image data](https://github.com/mueller-lab/TwinNet#system-requirements)
 - [Test using zebrafish image data](https://github.com/mueller-lab/TwinNet#installation-guide)
 - [Problem solving in jupyter](https://github.com/mueller-lab/TwinNet#Demo)
@@ -10,7 +10,9 @@ This repository provides implementation materials for our manuscript "Uncovering
 
 # Installation
   1. Go to https://github.com/mueller-lab/TwinNet#installation-guide
-  2. Go to https://docs.conda.io/en/latest/miniconda.html and download the Miniconda version that works for your platform 
+  2. Go to https://docs.conda.io/en/latest/miniconda.html and download the Miniconda version that works for your platform
+  ![plot](./images/miniconda.png)
+  4. 
 
 ### What is the key part of the Twin Network approach?
 Twin Network uses deep learning algorithms to learn features of embryos that can be extracted from two-dimensional images. Manual annotation of a training dataset for this type of algorithm, however, would have the same difficulties as classical descriptions of embryonic development:
