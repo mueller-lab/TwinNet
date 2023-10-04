@@ -5,7 +5,7 @@ This an step-by-step tutorial to starte working with TwinNet in Windows10.
 - [Installation](https://github.com/mueller-lab/TwinNet/tree/main/installation#installation)
 - [Training TwinNet using zebrafish image data](https://github.com/mueller-lab/TwinNet/tree/main/installation#training-twinnet-using-zebrafish-image-data)
 - [Test TwinNet using zebrafish image data](https://github.com/mueller-lab/TwinNet/tree/main/installation#test-twinnet-using-zebrafish-image-data)
-- [Problem solving in jupyter](https://github.com/mueller-lab/TwinNet#Demo)
+- [Problem solving in jupyter](https://github.com/mueller-lab/TwinNet/blob/main/installation/README.md#problem-solving-in-jupyter)
 
 
 # Installation
@@ -90,8 +90,22 @@ We will use [miniconda](https://docs.conda.io/en/latest/miniconda.html) to creat
 
 
 # Test TwinNet using zebrafish image data
-
+1. To test you have to go back to jupyter to open another script in order execute it. The script is called “Similarities_developmental_stages.ipynb”
+![plot](./images/test_jupyter.png)   
+2. Click on “Cell”, “Run all”. The script should be executed automatically. There should be no problems.
+![plot](./images/run_all.png)   
+3. After you see the following at the end oft he page you are finished with the training session.
+![plot](./images/done.png) 
+ 
 # Problem solving in jupyter
+
+If you see the following, as it says, the kernel is dead. You then have to restart it.
+![plot](./images/kernel_problem.png) 
+
+You need to restart the kernel by going to “Kernel”, “Restart & Clear Output.
+![plot](./images/kernel_problem_solved.png) 
+
+After this you can run the script as usual.
 
 
 # License
