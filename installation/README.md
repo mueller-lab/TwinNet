@@ -73,7 +73,7 @@ We will use [miniconda](https://docs.conda.io/en/latest/miniconda.html) to creat
   
 11. After extraction you need to create a .json file called „EMBRYOS_TO_EXCLUDE” under C:\TwinNet-main\data\Training_Zebrafish1\10.48606-80\data\dataset\TwinNetworkDataset022\Dataset022 or under your own dataset. 
 - If the folder “TwinNetworkDataset022” does not exist under “dataset”, create it and put the “Dataset022” folder into it.
-- Create the file by creating Text document (right click in the folder, “New”  “Text Document”. Give the Text Document the name “EMBRYOS_TO_EXCLUDE”. Make sure that you see the file name extensions (If not go in the folder settings to ”View”, and tick the box “File Name extensions”. Change the File name extension from “.txt” to “.json” to create the .json file.
+- Create the file by creating Text document (right click in the folder, “New” -> “Text Document”. Give the Text Document the name “EMBRYOS_TO_EXCLUDE”. Make sure that you see the file name extensions (If not go in the folder settings to ”View”, and tick the box “File Name extensions”. Change the File name extension from “.txt” to “.json” to create the .json file.
 - Type in : "[]" if you do not want to exclude embryos from your analysis
 - In this file you can also exclude data by typing in the file name. In case you don’t want to exclude data, you still need the file but in this case it is empty and should look like this for the script to work.
 ![plot](./images/exclude_embryos.png)   
