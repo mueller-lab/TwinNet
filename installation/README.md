@@ -25,14 +25,14 @@ We will use miniconda to create a TwinNet enviroment
   6. Go to https://github.com/mueller-lab/TwinNet/blob/main/installation/twinnetworkenv.yml and download the raw file
   ![plot](./images/yml_file.png)
 
-  7. Open “Anaconda Powershell Prompt” and copy the “twinnetworkenv.yml” raw file into the folder shown in the Anaconda Powershell Prompt command window \
+  7. Open “Anaconda Powershell Prompt” and copy the “twinnetworkenv.yml” raw file into the folder shown in the Anaconda Powershell Prompt command window  
      In this case the file has to be copied into the folder “andre” in “C:\Users”
   ![plot](./images/shell_yml.png)
 
-  8. Copy the command “conda env create -f twinnetworkenv.yml” into the Anaconda Powershell Prompt command window and run it by pressing enter \
+  9. Copy the command “conda env create -f twinnetworkenv.yml” into the Anaconda Powershell Prompt command window and run it by pressing enter  
    ![plot](./images/shell_yml_exe.png)
 
-    8.1. Packages are now automatically downloaded, extracted and TwinNet installed. \   
+    8.1. Packages are now automatically downloaded, extracted and TwinNet installed.     
     ![plot](./images/shell_yml_installing.png)
     
     8.2. Typical installation time on a standard desktop computer with standard internet connection speeds is approximately 20 min. 
