@@ -29,24 +29,65 @@ We will use [miniconda](https://docs.conda.io/en/latest/miniconda.html) to creat
   ![plot](./images/shell_yml.png)
 
   9. Copy the command “conda env create -f twinnetworkenv.yml” into the Anaconda Powershell Prompt command window and run it by pressing enter  
-      ![plot](./images/shell_yml_exe.png)
-     - Packages are now automatically downloaded, extracted and TwinNet installed.
+      ![plot](./images/shell_yml_exe.png)If you want to use your own dataset you need to make adjustments to a specific file called “config”. You can find the file under “C:\TwinNet-main\code\Scripts\twinnet_config\Windows”. In this file you have to change the source path from the training data set path to your dataset path.Packages are now automatically downloaded, extracted and TwinNet installed.
        ![plot](./images/shell_yml_installing.png)
      - Typical installation time on a standard desktop computer with standard internet connection speeds is approximately 20 min.
      - When the installation is finished the initial command line is shown on the Anaconda Powershell Prompt
        ![plot](./images/shell_yml_installing_done.png)
 
 # Training TwinNet using zebrafish image data
-## Hardware requirements
-TwinNet requires only a standard computer with enough RAM to support the operations defined by the user. We recommend the usage of a CUDA-enabled graphics processing unit (GPU) with enough GPU memory to utilize GPU-acceleration of applications.
 
-## Software requirements
-The applications have been tested on Windows 10.
+1. Open the Anaconda Powershell Prompt command window and activate the environment by typing in “conda activate twinnetworkenv”. The environment should switch from (base) to (twinnetworkenv)
+   ![plot](./images/activate_env.png)
+2. Go to https://github.com/mueller-lab/TwinNet#installation-guide and download the whole code
+   ![plot](./images/download_code.png)
+3. After the download, extract the zip file directly into C:\, by right clicking it “extract all” and again clicking “Extract” in the appearing window.
+4. After extracting the file into C:\ you have to download a few more files. These files have to be placed into specific folders or sometimes replace existing folders.
+- Go to https://cloud.uni-konstanz.de/index.php/s/mCWq75Eg5cXQPA4 and download all the data
+- After the download, extract the zip file directly into C:\, by right clicking it “extract all”, choosing the path (C:\) and again clicking “Extract” in the appearing window.
+- You now have a folder in C:\ called “TwinNet_TutorialData”, open it and move the three folders to the correct place with right click on the folder  cut and right click  paste in the destination folder
+    * “data_test_similarities_developmental_stages” to “C:\TwinNet-main\data\twinnet_data\”
+    * “image_jsons_reference” also to “C:\TwinNet-main\data\twinnet_data\” (replace the existing folder)
+    * “tn_models_zebrafish” to “C:\TwinNet-main\data\twinnet_models\” (replace the existing folder)
+       
+5. Go to the Anaconda Powershell Prompt and execute five commands by typing in the yellow marked text and pressing enter (one after another)
+ ![plot](./images/jupyter.png)
+6. After executing the last command your browser will open jupyter where you can find the training scripts. Select the script with which you want to train your network with by clicking on it. E.g. the zebrafish training script.
+![plot](./images/jupyter_browser.png)
+7. Go through the script step by step until “Load Dataset” by clicking on the boxes and then executing the code by clicking on “Run”. If a number appears in the square bracket next to the box without an error message, the code was successfully executed.  
+![plot](./images/run_training.png)
 
-CUDA 11.2 and cuDNN 8.1 were installed to enable GPU-acceleration of training and evaluation tasks (https://developer.nvidia.com/cuda-toolkit).
+8.After successfully executing the code in box 7, download the dataset from https://kondata.uni-konstanz.de/radar/en/dataset/HRaUYMZlKFdBJqNx. Before extracting the data you have to create a folder ”Training_Zebrafish1” in “C:\TwinNet-main\data\”. Into this newly created folder you have to extract the date to (in the same way you did before). 
+- If you want to use your own dataset you need to make adjustments to a specific file called “config”. You can find the file under “C:\TwinNet-main\code\Scripts\twinnet_config\Windows”. In this file you have to change the source path from the training data set path to your dataset path.
+![plot](./images/own_data.png)
 
-## Python dependencies
-TwinNet was developed and tested with Python 3.9.7 and tensorflow 2.8.0. Please see the file "[requirements.txt](https://github.com/mueller-lab/TwinNet/blob/main/installation/requirements.txt)" under "Installation" for information on the used python packages.
+9. After downloading the dataset to the folder you have to extract the data from the file. Open the command prompt and execute four commands by typing in the yellow marked text and pressing enter (one after another)
+![plot](./images/own_data.png)
+
+- When the extraction process is finished the initial command line is shown at the end of the command prompt (C:\TwinNet-main\data\Training_Zebrafish1>)
+
+10. After the extraction, go to the folder C:\TwinNet-main\data\Training_Zebrafish1\10.48606-80\data\dataset, here you have to extract the files from the zip folder by using winrar
+
+- Download WinRar on the following website for free https://www.win-rar.com/start.html?&L=0
+- Right click on the zip folder and choose winrar to extract the files. This takes usually ~30 min
+  
+11. After extraction you need to create a .json file called „EMBRYOS_TO_EXCLUDE” under C:\TwinNet-main\data\Training_Zebrafish1\10.48606-80\data\dataset\TwinNetworkDataset022\Dataset022 or under your own dataset. 
+- If the folder “TwinNetworkDataset022” does not exist under “dataset”, create it and put the “Dataset022” folder into it.
+- Create the file by creating Text document (right click in the folder, “New”  “Text Document”. Give the Text Document the name “EMBRYOS_TO_EXCLUDE”. Make sure that you see the file name extensions (If not go in the folder settings to ”View”, and tick the box “File Name extensions”. Change the File name extension from “.txt” to “.json” to create the .json file.
+- Type in : "[]" if you do not want to exclude embryos from your analysis
+- In this file you can also exclude data by typing in the file name. In case you don’t want to exclude data, you still need the file but in this case it is empty and should look like this for the script to work.
+![plot](./images/exclude_embryos.png)   
+
+12. Then proceed with box 8 under “Load Dataset” in the notebook
+13. After the dataset is loaded continue with “Load model” and “Training”
+- The three steps under Training „Training iteration 1, 2 and 3“ will take its time
+- Do also not worry about the following message
+![plot](./images/warning.png)   
+
+14. After you see the following you are finished with the training session.
+![plot](./images/done.png) 
+
+
 
 # Installation Guide
 We recommend creating an environment for the implementation of the code for Twin Network, for example using Miniconda (https://docs.conda.io/en/latest/miniconda.html).
