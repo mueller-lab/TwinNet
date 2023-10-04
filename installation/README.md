@@ -4,7 +4,7 @@ This an step-by-step tutorial to starte working with TwinNet in Windows10.
 ## Content
 - [Installation](https://github.com/mueller-lab/TwinNet/tree/main/installation#installation)
 - [Training TwinNet using zebrafish image data](https://github.com/mueller-lab/TwinNet/tree/main/installation#training-twinnet-using-zebrafish-image-data)
-- [Test TwinNet using zebrafish image data](https://github.com/mueller-lab/TwinNet#installation-guide)
+- [Test TwinNet using zebrafish image data](https://github.com/mueller-lab/TwinNet/tree/main/installation#test-twinnet-using-zebrafish-image-data)
 - [Problem solving in jupyter](https://github.com/mueller-lab/TwinNet#Demo)
 
 
@@ -45,7 +45,7 @@ We will use [miniconda](https://docs.conda.io/en/latest/miniconda.html) to creat
 4. After extracting the file into C:\ you have to download a few more files. These files have to be placed into specific folders or sometimes replace existing folders.
 - Go to https://cloud.uni-konstanz.de/index.php/s/mCWq75Eg5cXQPA4 and download all the data
 - After the download, extract the zip file directly into C:\, by right clicking it “extract all”, choosing the path (C:\) and again clicking “Extract” in the appearing window.
-- You now have a folder in C:\ called “TwinNet_TutorialData”, open it and move the three folders to the correct place with right click on the folder  cut and right click  paste in the destination folder
+- You now have a folder in C:\ called “TwinNet_TutorialData”, open it and move the three folders to the correct place with right click on the folder -> cut and right click -> paste in the destination folder
     * “data_test_similarities_developmental_stages” to “C:\TwinNet-main\data\twinnet_data\”
     * “image_jsons_reference” also to “C:\TwinNet-main\data\twinnet_data\” (replace the existing folder)
     * “tn_models_zebrafish” to “C:\TwinNet-main\data\twinnet_models\” (replace the existing folder)
@@ -89,58 +89,15 @@ We will use [miniconda](https://docs.conda.io/en/latest/miniconda.html) to creat
 
 
 
-# Installation Guide
-We recommend creating an environment for the implementation of the code for Twin Network, for example using Miniconda (https://docs.conda.io/en/latest/miniconda.html).
+# Test TwinNet using zebrafish image data
 
-A Python environment for TwinNet implementation can be created as follows:
+# Problem solving in jupyter
 
-*Option 1*: Create Python environment from [twinnetworkenv.yml](https://github.com/mueller-lab/TwinNet/blob/main/installation/twinnetworkenv.yml) file:
-```
-conda env create -f twinnetworkenv.yml
-```
-
-*Option 2*: Create Python environment from [requirements.txt](https://github.com/mueller-lab/TwinNet/blob/main/installation/requirements.txt) file:
-```
-conda create --name 'twinnet' --file requirements.txt
-```
-
-*Option 3*: Create environment manually
-- Create a python environment with Python 3.9
-- Install [Tensorflow](https://www.tensorflow.org/install/)
-- Install other dependencies ([requirements.txt](https://github.com/mueller-lab/TwinNet/blob/main/installation/requirements.txt))
-
-```
-conda create -n 'twinnet' python=3.9 
-conda activate twinnet
-
-pip install jupyter
-pip install matplotlib
-pip install opencv-python
-pip install pandas
-pip install scikit-learn
-pip install scipy
-pip install seaborn
-pip install tensorflow-addons
-pip install tensorflow_io
-...
-```
-
-Typical installation time on a standard desktop computer with standard internet connection speeds is approximately 20 min. For installation of CUDA and cuDNN, additional installation time of approximately 1 h and system reboots are required.
-
-# Demo
-To run the demo scripts for Twin Network on a local PC, please follow the [installation instructions](https://github.com/mueller-lab/TwinNet#installation-guide) to install Python with the required packages. The demo script access configuration files located in the [Scripts/twinnet_config](https://github.com/mueller-lab/TwinNet/tree/main/code/Scripts/twinnet_config) directory. Before running the scripts, update the corresponding data paths in the config files for Windows or Linux, depending on your operating system, with the required file paths.
-
-A description of the scripts is given here: [Overview of scripts](https://github.com/mueller-lab/TwinNet/tree/main/code/Scripts/README.md). Training and testing files are located in the folder [Scripts](https://github.com/mueller-lab/TwinNet/tree/main/code/Scripts).
-
-Run times depend on installed hardware, sample and batch sizes used for the analysis. Examples for approximate durations tested on our system:
-- The duration of the generation of embeddings and the calculation of similarities for 1 test image and 1 reference image sequence with 720 frames is 18 s
-- Calculation of embeddings and similarities for 1 test image sequence with 418 frames and 3 reference datasets with each 360 frames is 160 s
-- Image ordering of a test image sequence with 300 frames is 20 s
-- Calculation of similarities for each image of a test embryo with all previous images of the same embryo for an image sequence with 360 images is 5-10 s
-- Calculation of similarity values between 77 embryos at 360 different acquisition timepoints is 11 min
-
-# Results
-Examples of results using the testing demo scripts are stored within the ["results"-directory](https://github.com/mueller-lab/TwinNet/tree/main/results).
 
 # License
 The content of this project is licensed under the the GNU General Public License version 3.0 (GPL-3.0).
+
+# Authors
+- Created by Cedric Wolfer (cedric.wolfer@uni-konstanz.de)
+- Tested by Lisa Dimmler (lisa.dimmler@uni-konstanz.de)
+- Supervised by Hernan Morales-Navarrete (hernan.morales-navarrete@uni-konstanz.de)
