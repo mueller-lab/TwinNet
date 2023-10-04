@@ -16,10 +16,9 @@ We will use miniconda to create a TwinNet enviroment
 
   3. Download and install Miniconda
   4. To install TwinNet: Go to https://github.com/mueller-lab/TwinNet#installation-guide
-  5. You will now have three options \
-     
-    - We recommend Option 1: Create Python environment from https://github.com/mueller-lab/TwinNet/blob/main/installation/twinnetworkenv.yml \
-    - This manual will continue with Option 1 \
+  5. You will now have three options  
+     - We recommend Option 1: Create Python environment from https://github.com/mueller-lab/TwinNet/blob/main/installation/twinnetworkenv.yml  
+     - This manual will continue with Option 1   
     
     ![plot](./images/install_guide.png)
 
