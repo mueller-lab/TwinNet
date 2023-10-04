@@ -2,7 +2,7 @@
 This repository provides implementation materials for our manuscript "Uncovering developmental time and tempo using deep learning".
 
 ## Content
-- [Installation](https://github.com/mueller-lab/TwinNet#overview)
+- [Installation](https://github.com/mueller-lab/TwinNet/edit/main/installation/Installation)
 - [Training using zebrafish image data](https://github.com/mueller-lab/TwinNet#system-requirements)
 - [Test using zebrafish image data](https://github.com/mueller-lab/TwinNet#installation-guide)
 - [Problem solving in jupyter](https://github.com/mueller-lab/TwinNet#Demo)
