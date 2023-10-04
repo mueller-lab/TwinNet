@@ -29,7 +29,7 @@ We will use miniconda to create a TwinNet enviroment
   ![plot](./images/shell_yml.png)
 
   9. Copy the command “conda env create -f twinnetworkenv.yml” into the Anaconda Powershell Prompt command window and run it by pressing enter  
-      ![plot](./images/shell_yml_exe.png)  
+      ![plot](./images/shell_yml_exe.png)
      - Packages are now automatically downloaded, extracted and TwinNet installed.
      - ![plot](./images/shell_yml_installing.png)
      - Typical installation time on a standard desktop computer with standard internet connection speeds is approximately 20 min.
