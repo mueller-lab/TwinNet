@@ -1,5 +1,5 @@
 # Twin Network step-by-step tutorial
-This an step-by-step tutorial to starte working with TwinNet in Windows10.
+This is an step-by-step tutorial to start working with TwinNet in Windows10.
 
 ## Content
 - [Installation](https://github.com/mueller-lab/TwinNet/tree/main/installation#installation)
