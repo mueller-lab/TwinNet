@@ -80,6 +80,10 @@ Analysis of cosine similarity matrices, e.g. results of self-similarity calculat
 Segment images containing multiple zebrafish embryos and create a JSON file for each image with annotations of the positions of the zebrafish embryos. This is a commandline tool for the segmentation of images of multiple zebrafish embryos.
 Track individual embryo positions in time series image acquisitions of a batch of embryos. Cut out the annotated zebrafish embryo image segments and save them sorted by embryos.
 
+### 11. [Temperature Analyisis]([https://github.com/mueller-lab/TwinNet/blob/main/code/Scripts/segmentation](https://github.com/mueller-lab/TwinNet/blob/main/code/Scripts/Analysis_Prediction_age.ipynb))
+Use Twin Network to predictembryonic age from time lapses experiments.
+
+
 In the first step, annotations of the test image data are created. To segment images and store image annotations, run the following command with adjusted paths:
 ```
 "python main.py -i /path/to/input/data -m /path/to/segmentation/model -o /path/to/save/outputs/to"
