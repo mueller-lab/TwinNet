@@ -94,7 +94,7 @@ In the second step, the annotations are used and loaded to cut out the image seg
 <img src="https://raw.githubusercontent.com/mueller-lab/TwinNet/main/data/images/Segmentation.png" width="800">
 
 
-### 11. [Temperature Analyisis]([https://github.com/mueller-lab/TwinNet/blob/main/code/Scripts/segmentation](https://github.com/mueller-lab/TwinNet/blob/main/code/Scripts/Analysis_Prediction_age.ipynb))
+### 11. [Temperature Analyisis](https://github.com/mueller-lab/TwinNet/blob/main/code/Scripts/Analysis_Prediction_age.ipynb)
 Use Twin Network to predictembryonic age from time lapses experiments.
 
 
