@@ -26,7 +26,7 @@ By its design, on the other hand, Twin Network circumvents these limitations: Du
 ### How to use Twin Network
 This repository contains training and testing applications for Twin Network, including pre-trained models for the model organisms _Caenorhabditis elegans_, Medaka (_Oryzias latipes_), Stickleback (_Gasterosteus aculeatus_), and Zebrafish (_Danio rerio_). Installation instructions are listed below.
 
-You can also follow the [step-by-step-tutorial](https://github.com/mueller-lab/TwinNet/tree/main/installation#twin-network-step-by-step-tutorial) for the installation, training and test of TwinNet: https://github.com/mueller-lab/TwinNet/tree/main/installation#twin-network-step-by-step-tutorial
+You can also follow the [step-by-step tutorial](https://github.com/mueller-lab/TwinNet/tree/main/installation#twin-network-step-by-step-tutorial) for the installation, training and test of TwinNet: https://github.com/mueller-lab/TwinNet/tree/main/installation#twin-network-step-by-step-tutorial
 
 # System Requirements
 ## Hardware requirements
