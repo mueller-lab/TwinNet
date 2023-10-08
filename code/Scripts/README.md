@@ -80,8 +80,7 @@ Analysis of cosine similarity matrices, e.g. results of self-similarity calculat
 Segment images containing multiple zebrafish embryos and create a JSON file for each image with annotations of the positions of the zebrafish embryos. This is a commandline tool for the segmentation of images of multiple zebrafish embryos.
 Track individual embryo positions in time series image acquisitions of a batch of embryos. Cut out the annotated zebrafish embryo image segments and save them sorted by embryos.
 
-### 11. [Temperature Analyisis]([https://github.com/mueller-lab/TwinNet/blob/main/code/Scripts/segmentation](https://github.com/mueller-lab/TwinNet/blob/main/code/Scripts/Analysis_Prediction_age.ipynb))
-Use Twin Network to predictembryonic age from time lapses experiments.
+
 
 
 In the first step, annotations of the test image data are created. To segment images and store image annotations, run the following command with adjusted paths:
@@ -93,6 +92,11 @@ In the second step, the annotations are used and loaded to cut out the image seg
 "python segment.py -i /path/to/annotation/data -o /path/to/save/segments/to"
 ```
 <img src="https://raw.githubusercontent.com/mueller-lab/TwinNet/main/data/images/Segmentation.png" width="800">
+
+
+### 11. [Temperature Analyisis]([https://github.com/mueller-lab/TwinNet/blob/main/code/Scripts/segmentation](https://github.com/mueller-lab/TwinNet/blob/main/code/Scripts/Analysis_Prediction_age.ipynb))
+Use Twin Network to predictembryonic age from time lapses experiments.
+
 
 # Data access
 The image data for the Twin Network zebrafish applications are published under https://dx.doi.org/10.48606/50, and are publicly retrievable for the Twin Network C. elegans, Medaka, and Stickleback applications.
