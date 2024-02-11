@@ -80,13 +80,21 @@ Analysis of cosine similarity matrices, e.g. results of self-similarity calculat
 Segment images containing multiple zebrafish embryos and create a JSON file for each image with annotations of the positions of the zebrafish embryos. This is a commandline tool for the segmentation of images of multiple zebrafish embryos.
 Track individual embryo positions in time series image acquisitions of a batch of embryos. Cut out the annotated zebrafish embryo image segments and save them sorted by embryos.
 
-
-
-
 In the first step, annotations of the test image data are created. To segment images and store image annotations, run the following command with adjusted paths:
 ```
 "python main.py -i /path/to/input/data -m /path/to/segmentation/model -o /path/to/save/outputs/to"
 ```
+
+Please note that the input path for the main.py script should be provided according to the following example:
+
+|  | Example |
+| ---------- | --- |
+| Image storage structure <br> (files sorted by experiments) | /data/segmentation_data/dataset_example/TIFFs/-A004--PO01/images |
+| Input path for "main.py" | /data/segmentation_data/ |
+
+
+For usage of different input path structures, the format for image file search can be updated in the scripts in [segmentation](https://github.com/mueller-lab/TwinNet/tree/main/code/Scripts/segmentation).
+
 In the second step, the annotations are used and loaded to cut out the image segments. Please note that in order to load the images for cutting, the second script loads the image paths from the annotation files. Thus, moving the image files after generating the annotations and before cutting out the image segments might hinder the second step.
 ```
 "python segment.py -i /path/to/annotation/data -o /path/to/save/segments/to"
