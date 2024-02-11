@@ -87,7 +87,7 @@ In the first step, annotations of the test image data are created. To segment im
 
 Please note that the input path for the main.py script should be provided according to the following example:
 
-|  | Example |
+|  | File path example |
 | ---------- | --- |
 | Image storage structure <br> (files sorted by experiments) | /data/segmentation_data/dataset_example/TIFFs/-A004--PO01/images |
 | Input path for "main.py" | /data/segmentation_data/ |
