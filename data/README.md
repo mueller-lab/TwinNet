@@ -1,6 +1,6 @@
 # Twin Network Models
 
-Twin Network Models can be download from [TwinNet_TutorialData](https://cloud.uni-konstanz.de/index.php/s/mCWq75Eg5cXQPA4)
+Twin Network Models can be downloaded from [TwinNet_TutorialData](https://cloud.uni-konstanz.de/index.php/s/mCWq75Eg5cXQPA4)
 
 
 # License
